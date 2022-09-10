@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setTitle("User Login")
+        setTitle("Login")
 
         inputUsername = findViewById(R.id.inputLayoutUsername)
         inputPassword = findViewById(R.id.inputLayoutPassword)
@@ -63,9 +63,11 @@ class MainActivity : AppCompatActivity() {
                 checkLogin = false
             }
 
-            if (username==vUsername && password==vPassword){
-                checkLogin= true
+
+            if (intent.hasExtra("register")){
+                if (username==vUsername&& password==vPassword)checkLogin=true
             }
+
             if (username=="admin" && password=="0530"){
                 checkLogin= true
             }
