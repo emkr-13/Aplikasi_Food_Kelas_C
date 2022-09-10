@@ -7,6 +7,16 @@
     android:id="@+id/loginLayout"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="500dp"
+        android:layout_height="800dp"
+        android:src="@drawable/tumpeng"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -16,7 +26,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text=" Login"
-        android:textColor="@color/black"
+        android:textColor="#7FFF00"
         style="@style/TextAppearance.MaterialComponents.Headline4"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,6 +56,7 @@
             app:startIconDrawable="@drawable/ic_user_24"
             android:layout_marginBottom="8dp"
             android:hint="Username"
+            app:boxBackgroundColor="@color/white"
 
             >
 
@@ -63,8 +74,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/ic_lock_24"
-            app:helperText="Masukan password anda"
             android:hint="Password"
+            app:boxBackgroundColor="@color/white"
 
             >
 
@@ -93,6 +104,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Clear Field"
+            app:backgroundTint="#70ED28"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -101,6 +113,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Login"
+            app:backgroundTint="#70ED28"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -109,6 +122,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Register"
+            app:backgroundTint="#70ED28"
             />
 
     </LinearLayout>
