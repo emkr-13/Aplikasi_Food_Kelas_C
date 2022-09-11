@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 if (username==vUsername&& password==vPassword)checkLogin=true
             }
 
-            if (username=="admin" && password=="0530"){
+            if (username=="admin" && password=="1234"){
                 checkLogin= true
             }
             if (!checkLogin)return@OnClickListener
