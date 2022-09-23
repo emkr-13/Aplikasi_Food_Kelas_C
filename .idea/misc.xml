@@ -30,6 +30,12 @@
         <entry key="..\:/PBP/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/PBP/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/PBP/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_register.xml" value="0.25" />
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        <entry key="..\:/Semester 5/PBP/Aplikasi_Food_Kelas_C/app/src/main/res/layout/fragment_exit.xml" value="0.25" />
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/PBP/p/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
         <entry key="..\:/PBP/p/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_splash_screen.xml" value="0.144" />
         <entry key="..\:/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/activity_home.xml" value="0.25" />
@@ -42,6 +48,10 @@
         <entry key="..\:/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/fragment_list_pesanan.xml" value="0.25" />
         <entry key="..\:/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/rv_item_makanan.xml" value="0.25" />
         <entry key="..\:/app makanan/Aplikasi_Food_Kelas_C/app/src/main/res/layout/rv_item_pesanan.xml" value="0.25" />
+<<<<<<< Updated upstream
+=======
+>>>>>>> 576bc41b077bb7868860bb288901496dd014d3b3
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
