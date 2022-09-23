@@ -13,6 +13,10 @@
         android:icon="@drawable/ic_basket_24"
         android:title="List Pesanan" />
 
+    <item android:id="@+id/data_profil"
+        android:icon="@drawable/ic_user_24"
+        android:title="Profil" />
+
     <item android:id="@+id/menu_exit"
         android:icon="@drawable/ic_exit_24"
         android:title="Exit App"/>

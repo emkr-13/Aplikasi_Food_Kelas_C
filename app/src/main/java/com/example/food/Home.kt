@@ -33,6 +33,11 @@ class Home : AppCompatActivity() {
                     loadFragment(FragmentListPesanan())
                     return@setOnNavigationItemReselectedListener
                 }
+
+                R.id.data_profil -> {
+                    loadFragment(FragmentEditProfil())
+                    return@setOnNavigationItemReselectedListener
+                }
                 R.id.menu_exit -> {
                     loadFragment(FragmentExit())
                     val builder : AlertDialog.Builder = AlertDialog.Builder(this@Home)
