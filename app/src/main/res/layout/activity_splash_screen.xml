@@ -6,16 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".SplashScreen">
+    tools:context=".splashScreen">
 
     <ImageView
-        android:id="@+id/SplashScreenImage"
-        android:layout_width="1633dp"
-        android:layout_height="1379dp"
+        android:id="@+id/imageView"
+        android:layout_width="775dp"
+        android:layout_height="924dp"
         android:src="@drawable/satay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="307dp"
+        android:layout_height="62dp"
+        android:text="Welcome to Application Food"
+        android:textColor="#7FFF00"
+        android:textSize="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
