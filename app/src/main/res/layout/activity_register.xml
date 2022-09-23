@@ -11,6 +11,7 @@
         android:layout_width="500dp"
         android:layout_height="800dp"
         android:src="@drawable/food"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Registrasi"
+        tools:viewBindingIgnore="true"
         android:textColor="#7FFF00"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +43,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +56,7 @@
             android:id="@+id/ketikUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:viewBindingIgnore="true"
             android:hint="Username" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,6 +68,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +83,7 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:viewBindingIgnore="true"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +95,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,6 +118,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +132,7 @@
             android:id="@+id/ketikTanggalLahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:viewBindingIgnore="true"
             android:hint="Tanggal Lahir" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -140,6 +149,7 @@
         app:layout_constraintTop_toBottomOf="@id/setTanggalLahir"
         app:layout_constraintVertical_bias="0.0"
         app:startIconDrawable="@drawable/ic_phone_24"
+        tools:viewBindingIgnore="true"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -147,6 +157,7 @@
             android:id="@+id/ketikNomorHp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:viewBindingIgnore="true"
             android:hint="Nomor Hp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,6 +170,7 @@
         android:layout_marginEnd="16dp"
         android:text="Register"
         app:backgroundTint="#70ED28"
+        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
