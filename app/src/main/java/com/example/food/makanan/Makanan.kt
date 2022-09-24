@@ -7,5 +7,5 @@ data class Makanan (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val harga: Float,
+    val harga: String,
         )
