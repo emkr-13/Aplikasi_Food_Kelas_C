@@ -7,16 +7,22 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
+import com.example.food.user.User
+import com.example.food.user.UserDB
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.xml.datatype.DatatypeConstants.MONTHS
 import java.util.*
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-
+    val db by lazy { UserDB(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -71,6 +77,8 @@ class Register : AppCompatActivity() {
             }
             if (!checkRegis)return@setOnClickListener
 
+            setupListener()
+            Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
 
 
 
@@ -90,7 +98,21 @@ class Register : AppCompatActivity() {
 
 //
 
+    private fun setupListener(){
+        val inputUsername=binding.ketikUsername.text.toString()
+        val inputPassword=binding.ketikPassword.text.toString()
+        val inputEmail=binding.ketikEmail.text.toString()
+        val inputTanggalLahir=binding.ketikTanggalLahir.text.toString()
+        val inputNomorHP=binding.ketikNomorHp.text.toString()
 
+        CoroutineScope(Dispatchers.IO).launch {
+
+            db.userDao().addUser(User(0,inputUsername,inputPassword,inputEmail,inputNomorHP,inputTanggalLahir))
+
+        }
+        finish()
+
+    }
 }
 
 

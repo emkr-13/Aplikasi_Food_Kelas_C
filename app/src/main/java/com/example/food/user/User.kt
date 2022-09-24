@@ -8,7 +8,8 @@ data class User (
     val id: Int,
     val user: String,
     val password: String,
+    val email: String,
     val nomorHP: String,
-    val tanggalLahir: Int,
+    val tanggalLahir: String,
 
         )

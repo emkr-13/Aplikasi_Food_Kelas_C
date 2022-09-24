@@ -35,7 +35,7 @@ class Home : AppCompatActivity() {
                 }
 
                 R.id.data_profil -> {
-                    loadFragment(FragmentEditProfil())
+                    loadFragment(FragmentShowProfil())
                     return@setOnNavigationItemReselectedListener
                 }
                 R.id.menu_exit -> {
