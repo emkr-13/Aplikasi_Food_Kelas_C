@@ -9,25 +9,35 @@
     <!-- TODO: Update blank fragment layout -->
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="420dp"
+        android:layout_height="830dp"
+        android:src="@drawable/profback"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:viewBindingIgnore="true" />
+
     <TextView
         android:id="@+id/JdlAja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Profil Diri"
         android:textColor="#8AE870"
-        android:textSize="48sp"
-    />
+        android:textSize="48sp" />
 
     <TextView
         android:id="@+id/showUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="190dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Username"
@@ -43,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Email"
@@ -57,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="290dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Tanggal Lahir"
@@ -66,20 +76,19 @@
         tools:viewBindingIgnore="true"
         />
 
+
     <TextView
         android:id="@+id/showNomorHP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="340dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text="Nomor HP"
         android:textColor="#000000"
         android:textSize="24sp"
-        tools:viewBindingIgnore="true"
-        />
-
+        tools:viewBindingIgnore="true" />
 
     <Button
         android:id="@+id/btnEdit"
