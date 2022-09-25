@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         inputPassword = findViewById(R.id.inputLayoutPassword)
         loginLayout = findViewById(R.id.loginLayout)
 
-        val  btnClear: Button = findViewById(R.id.btnClear)
+
         val btnLogin: Button = findViewById(R.id.btnLogin)
         val btnRegister: Button = findViewById(R.id.btnRegister)
 
@@ -62,12 +62,7 @@ class MainActivity : AppCompatActivity() {
             setText()
         }
 
-        btnClear.setOnClickListener{
-            inputUsername.getEditText()?.setText("")
-            inputPassword.getEditText()?.setText("")
 
-            Snackbar.make(loginLayout,"Text Cleared Success", Snackbar.LENGTH_LONG).show()
-        }
         val moveHome = Intent(this@MainActivity,Home :: class.java)
 
 

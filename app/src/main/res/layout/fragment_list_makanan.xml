@@ -10,6 +10,6 @@
         android:id="@+id/rv_makanan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/rv_item_makanan" />
+        />
 
 </FrameLayout>

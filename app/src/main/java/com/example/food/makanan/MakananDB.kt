@@ -32,7 +32,7 @@ import com.example.food.user.UserDB
             Room.databaseBuilder(
                 context.applicationContext,
                 MakananDB::class.java,
-                "user.db"
+                "makanan.db"
             ).build()
     }
 }
