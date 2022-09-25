@@ -13,6 +13,7 @@ import androidx.room.RoomDatabase
 abstract class UserDB: RoomDatabase() {
 
     abstract fun userDao() : UserDao
+//    abstract fun makananDao() : MakananDAO
 
     companion object {
 

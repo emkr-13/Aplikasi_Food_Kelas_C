@@ -1,4 +1,4 @@
-package com.example.food.makanan
+package com.example.food.user
 
 import androidx.room.*
 

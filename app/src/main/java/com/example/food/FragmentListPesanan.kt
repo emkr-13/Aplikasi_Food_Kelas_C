@@ -33,9 +33,7 @@ class FragmentListPesanan : Fragment() {
         rvPesanan.setHasFixedSize(true)
         rvPesanan.adapter = adapter
 
-        btn_add.setOnClickListener {
 
-        }
 
     }
 

@@ -55,6 +55,11 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
         val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
         loadData(ids)
+//        CoroutineScope(Dispatchers.IO).launch{
+//            if(db.userDao().getUser().isNotEmpty()){
+//
+//            }
+//        }
 
         var intent : Intent=intent
         if (intent.hasExtra("register")){
