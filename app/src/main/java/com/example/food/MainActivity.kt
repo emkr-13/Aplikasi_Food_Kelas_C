@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     var sharedPreferences: SharedPreferences? = null
     private val myPreference = "login"
     private val id = "idKey"
+    private val ids = "idKey"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() {
 
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
+        loadData(ids)
 
         var intent : Intent=intent
         if (intent.hasExtra("register")){
@@ -140,4 +143,22 @@ class MainActivity : AppCompatActivity() {
         inputPassword = findViewById(R.id.inputLayoutPassword)
         inputPassword.getEditText()?.setText(vPassword)
     }
+    fun loadData(id: Int){
+        inputUsername = findViewById(R.id.inputLayoutUsername)
+
+
+        inputPassword = findViewById(R.id.inputLayoutPassword)
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = db?.userDao()?.getDataUser(id)?.get(0)
+
+
+            withContext(Dispatchers.Main){
+
+                inputUsername.editText?.setText(user?.user)
+                inputPassword.editText?.setText(user?.password)
+            }
+
+        }
+    }
+
 }
