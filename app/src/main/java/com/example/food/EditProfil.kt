@@ -1,5 +1,6 @@
 package com.example.food
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +13,17 @@ import com.example.food.user.UserDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class EditProfil : AppCompatActivity() {
     private lateinit var binding:ActivityEditProfilBinding
     val db by lazy { UserDB(this) }
     var sharedPreferences: SharedPreferences? = null
+    private val myPreference = "login"
+    private val id = "idKey"
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profil)
@@ -28,9 +35,14 @@ class EditProfil : AppCompatActivity() {
         val inputEmail=binding.ketikEmail
         val inputTanggalLahir=binding.ketikTanggalLahir
         val inputNomorHP=binding.ketikNomorHp
+
+        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        val id = sharedPreferences!!.getString(id,"")!!.toInt()
+        loadData(id)
+
         btnUpdate.setOnClickListener {
             var checkRegis = false
-            val intent = Intent (this,FragmentShowProfil :: class.java)
+            val intent = Intent (this,Home :: class.java)
 
 
 
@@ -64,26 +76,26 @@ class EditProfil : AppCompatActivity() {
             }
             else{
                 setupListener()
-                Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, username + " Edit", Toast.LENGTH_SHORT).show()
                 checkRegis=true
             }
             if (!checkRegis)return@setOnClickListener
 
 
 
-
-
-            val mBundle = Bundle()
-
-            mBundle.putString("username",inputUsername.text.toString())
-            mBundle.putString("password",inputPassword.text.toString())
-            mBundle.putString("email",inputEmail.text.toString())
-            mBundle.putString("tanggalLahir",inputTanggalLahir.text.toString())
-            mBundle.putString("nomorHp",inputNomorHP.text.toString())
-
-            intent.putExtra("register", mBundle)
-
             startActivity(intent)
+
+//            val mBundle = Bundle()
+//
+//            mBundle.putString("username",inputUsername.text.toString())
+//            mBundle.putString("password",inputPassword.text.toString())
+//            mBundle.putString("email",inputEmail.text.toString())
+//            mBundle.putString("tanggalLahir",inputTanggalLahir.text.toString())
+//            mBundle.putString("nomorHp",inputNomorHP.text.toString())
+//
+//            intent.putExtra("register", mBundle)
+
+
         }
     }
 
@@ -93,13 +105,30 @@ class EditProfil : AppCompatActivity() {
         val inputEmail=binding.ketikEmail.text.toString()
         val inputTanggalLahir=binding.ketikTanggalLahir.text.toString()
         val inputNomorHP=binding.ketikNomorHp.text.toString()
-        val id = sharedPreferences?.getString("id", "")
+        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        val id = sharedPreferences?.getString(id, "")
         CoroutineScope(Dispatchers.IO).launch {
 
             db.userDao().updateUser(User(id!!.toInt(),inputUsername,inputPassword,inputEmail,inputNomorHP,inputTanggalLahir))
 
         }
         finish()
+    }
 
+    fun loadData(id: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = db?.userDao()?.getDataUser(id)?.get(0)
+
+
+            withContext(Dispatchers.Main){
+                binding.setUsername.editText?.setText(user?.user)
+                binding.setPassword.editText?.setText(user?.password)
+                binding.setEmail.editText?.setText(user?.email)
+                binding.setTanggalLahir.editText?.setText(user?.tanggalLahir)
+                binding.setNomorHp.editText?.setText(user?.nomorHP)
+
+            }
+
+        }
     }
 }

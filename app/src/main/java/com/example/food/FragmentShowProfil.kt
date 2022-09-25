@@ -19,7 +19,8 @@ import kotlinx.coroutines.launch
 class FragmentShowProfil : Fragment() {
 
     val db by lazy { activity?.let { UserDB(it) } }
-
+    private val myPreference = "login"
+    private val id = "idKey"
     var sharedPreferences: SharedPreferences? = null
 
 
@@ -33,12 +34,19 @@ class FragmentShowProfil : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sharedPreferences = this.getActivity()?.getSharedPreferences("login", Context.MODE_PRIVATE)
+        sharedPreferences = activity?.getSharedPreferences(myPreference, Context.MODE_PRIVATE)
         val showUsername: TextView = view.findViewById(R.id.showUser)
+        val showEmail: TextView = view.findViewById(R.id.showEmail)
+        val showTanggal: TextView = view.findViewById(R.id.showTanggalLahir)
+        val showNomorHP: TextView = view.findViewById(R.id.showNomorHP)
         val btnEdit: Button = view.findViewById(R.id.btnEdit)
-        val id = sharedPreferences?.getString("id", "")
+
         CoroutineScope(Dispatchers.IO).launch {
-//            db?.userDao()?.getDataUser(id!!.toInt())
+            val user= db?.userDao()?.getDataUser(sharedPreferences!!.getString(id,"")!!.toInt())?.get(0)
+            showUsername.setText(user?.user)
+            showEmail.setText(user?.email)
+            showTanggal.setText(user?.tanggalLahir)
+            showNomorHP.setText(user?.nomorHP)
         }
 
 
@@ -50,4 +58,6 @@ class FragmentShowProfil : Fragment() {
 
 
     }
+
+
 }
