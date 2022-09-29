@@ -1,6 +1,15 @@
 package com.example.food
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +18,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
@@ -17,12 +28,15 @@ import com.example.food.user.UserDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.ref.Cleaner
 import javax.xml.datatype.DatatypeConstants.MONTHS
 import java.util.*
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     val db by lazy { UserDB(this) }
+    private val CHANNEL_ID_REGISTER = "channel_notification_01"
+    private val notificationId1 = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -42,15 +56,11 @@ class Register : AppCompatActivity() {
             var checkRegis = false
             val intent = Intent (this,MainActivity :: class.java)
 
-
-
             val username=inputUsername.text.toString()
             val password=inputPassword.text.toString()
             val email=inputEmail.text.toString()
             val nomorHP=inputNomorHP.text.toString()
             val tanggalLahir=inputTanggalLahir.text.toString()
-
-
 
             if (username.isEmpty()){
                 inputUsername.setError("Username must be filled with text")
@@ -80,23 +90,29 @@ class Register : AppCompatActivity() {
             setupListener()
             Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
 
+            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.logohome)
+            createNotificationChannel()
+
+            sendNotification1(username,bitmap)
 
 
             val mBundle = Bundle()
 
-            mBundle.putString("username",inputUsername.text.toString())
-            mBundle.putString("password",inputPassword.text.toString())
-            mBundle.putString("email",inputEmail.text.toString())
-            mBundle.putString("tanggalLahir",inputTanggalLahir.text.toString())
-            mBundle.putString("nomorHp",inputNomorHP.text.toString())
+            mBundle.putString("username",username)
+            mBundle.putString("password",password)
+            mBundle.putString("email",email)
+            mBundle.putString("tanggalLahir",tanggalLahir)
+            mBundle.putString("nomorHp",nomorHP)
 
             intent.putExtra("register", mBundle)
 
             startActivity(intent)
+
+
+
         }
     }
 
-//
 
     private fun setupListener(){
         val inputUsername=binding.ketikUsername.text.toString()
@@ -113,6 +129,64 @@ class Register : AppCompatActivity() {
         finish()
 
     }
+
+    private fun createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Notification Register"
+            val descriptionText = "Notification Description"
+
+            val channel1 = NotificationChannel(CHANNEL_ID_REGISTER,name, NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = descriptionText
+            }
+
+
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel1)
+        }
+    }
+
+    private fun sendNotification1(username: String, bitmap : Bitmap){
+        val intent : Intent = Intent (this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this,0,intent,0)
+        val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
+        broadcastIntent.putExtra("toastMessage","Halo " + username + " Kamu Berhasil Registrasi")
+
+
+
+        val actionIntent = PendingIntent.getActivity(this,0,broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+
+
+
+
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID_REGISTER)
+            .setSmallIcon(R.drawable.ic_baseline_arrow_back_24)
+            .setContentTitle("Registrasi Berhasil")
+            .setContentText("Halo " + username + " Kamu Berhasil Registrasi")
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .setColor(Color.BLUE)
+            .setAutoCancel(true)
+            .setOnlyAlertOnce(true)
+//            .setContentIntent(pendingIntent)
+            .addAction(R.mipmap.ic_launcher, "Ok", actionIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
+
+
+
+        with(NotificationManagerCompat.from(this)){
+            notify(notificationId1, builder.build())
+        }
+
+
+
+    }
+
+
 }
 
 
