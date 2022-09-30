@@ -150,18 +150,9 @@ class Register : AppCompatActivity() {
         val intent : Intent = Intent (this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this,0,intent,0)
-        val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
-        broadcastIntent.putExtra("toastMessage","Halo " + username + " Kamu Berhasil Registrasi")
-
-
-
-        val actionIntent = PendingIntent.getActivity(this,0,broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-
-
-
+        val okIntent = Intent(this, MainActivity::class.java)
+        okIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val okPendingIntent= PendingIntent.getActivity(this,0,okIntent,PendingIntent.FLAG_MUTABLE)
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID_REGISTER)
             .setSmallIcon(R.drawable.ic_baseline_arrow_back_24)
@@ -172,7 +163,7 @@ class Register : AppCompatActivity() {
             .setAutoCancel(true)
             .setOnlyAlertOnce(true)
 //            .setContentIntent(pendingIntent)
-            .addAction(R.mipmap.ic_launcher, "Ok", actionIntent)
+            .addAction(R.mipmap.ic_launcher, "Ok", okPendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
 
