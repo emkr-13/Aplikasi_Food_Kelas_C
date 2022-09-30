@@ -16,6 +16,7 @@ import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.food.databinding.ActivityMainBinding
 import com.example.food.user.UserDB
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -25,13 +26,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
     lateinit var  mBundle: Bundle
 
     lateinit var vUsername : String
     lateinit var vPassword : String
-    lateinit var vEmail : String
-    lateinit var vtanggalLahir : String
-    lateinit var vNomorHP: String
+
 
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
@@ -49,19 +49,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-//        setTitle("Login")
+        inputUsername = binding.inputLayoutUsername
+        inputPassword = binding.inputLayoutPassword
+        loginLayout = binding.loginLayout
 
-        inputUsername = findViewById(R.id.inputLayoutUsername)
-        inputPassword = findViewById(R.id.inputLayoutPassword)
-        loginLayout = findViewById(R.id.loginLayout)
-
-
-        val btnLogin: Button = findViewById(R.id.btnLogin)
-        val btnRegister: Button = findViewById(R.id.btnRegister)
+        val btnLogin = binding.btnLogin
+        val btnRegister=binding.btnRegister
 
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+
+
+//        Load Data Error if with
 //        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
 //        loadData(ids)
 //        CoroutineScope(Dispatchers.IO).launch{
@@ -69,14 +71,6 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //        }
-
-        var intent : Intent=intent
-        if (intent.hasExtra("register")){
-            getBudle()
-            setText()
-        }
-
-
         val moveHome = Intent(this@MainActivity,Home :: class.java)
 
 
@@ -85,9 +79,18 @@ class MainActivity : AppCompatActivity() {
             val username: String= inputUsername.getEditText()?.getText().toString()
             val password: String= inputPassword.getEditText()?.getText().toString()
 
+            var intent : Intent=intent
+            if (intent.hasExtra("register")){
+                getBudle()
+                setText()
+            }
             CoroutineScope(Dispatchers.IO).launch {
                 val users = db.userDao().getUser()
                 Log.d("MainActivity ","dbResponse: $users")
+
+
+
+
 
                 for(i in users){
                     if(username == i.user && password ==i.password){
@@ -122,11 +125,7 @@ class MainActivity : AppCompatActivity() {
                 checkLogin = false
             }
 
-
-
             if (!checkLogin)return@OnClickListener
-
-
 
         })
 
@@ -144,9 +143,6 @@ class MainActivity : AppCompatActivity() {
 
             vUsername=mBundle.getString("username")!!
             vPassword=mBundle.getString("password")!!
-            vEmail=mBundle.getString("email")!!
-            vtanggalLahir=mBundle.getString("tanggalLahir")!!
-            vNomorHP=mBundle.getString("nomorHp")!!
         }
 
     fun setText(){

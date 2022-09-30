@@ -46,11 +46,11 @@ class EditProfil : AppCompatActivity() {
 
 
 
-            val username=inputUsername.text.toString()
-            val password=inputPassword.text.toString()
-            val email=inputEmail.text.toString()
-            val nomorHP=inputNomorHP.text.toString()
-            val tanggalLahir=inputTanggalLahir.text.toString()
+            val username=binding.ketikUsername.text.toString()
+            val password=binding.ketikPassword.text.toString()
+            val email=binding.ketikEmail.text.toString()
+            val nomorHP=binding.ketikNomorHp.text.toString()
+            val tanggalLahir=binding.ketikTanggalLahir.text.toString()
 
 
 
@@ -85,15 +85,7 @@ class EditProfil : AppCompatActivity() {
 
             startActivity(intent)
 
-//            val mBundle = Bundle()
-//
-//            mBundle.putString("username",inputUsername.text.toString())
-//            mBundle.putString("password",inputPassword.text.toString())
-//            mBundle.putString("email",inputEmail.text.toString())
-//            mBundle.putString("tanggalLahir",inputTanggalLahir.text.toString())
-//            mBundle.putString("nomorHp",inputNomorHP.text.toString())
-//
-//            intent.putExtra("register", mBundle)
+
 
 
         }
