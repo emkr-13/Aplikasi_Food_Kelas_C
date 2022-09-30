@@ -8,5 +8,5 @@ data class Makanan (
     val id: Int,
     val name: String,
     val harga: String,
-    val idUser: Int
+
     )

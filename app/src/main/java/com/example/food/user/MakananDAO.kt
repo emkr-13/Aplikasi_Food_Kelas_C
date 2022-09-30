@@ -7,9 +7,13 @@ import androidx.room.*
 interface MakananDAO {
 
     @Insert
-    suspend fun addUser(makanan: Makanan)
+    suspend fun addMakan(makanan: Makanan)
     @Update
-    suspend fun updateUser(makanan: Makanan)
+    suspend fun updateMakan(makanan: Makanan)
     @Delete
-    suspend fun deleteUser(makanan: Makanan)
+    suspend fun deleteMakan(makanan: Makanan)
+    @Query("SELECT * FROM makanan")
+    suspend fun getMakan() : List<Makanan>
+    @Query("SELECT * FROM makanan Where id=:id_makan")
+    suspend fun getDataMakan(id_makan: Int): List<Makanan>
 }

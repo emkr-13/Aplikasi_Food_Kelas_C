@@ -28,7 +28,7 @@ abstract class MakananDB : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 MakananDB::class.java,
-                "user.db"
+                "makan.db"
             ).build()
     }
 }

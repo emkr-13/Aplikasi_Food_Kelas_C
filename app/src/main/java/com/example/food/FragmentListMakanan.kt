@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class FragmentListMakanan : Fragment() {
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
