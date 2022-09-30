@@ -10,6 +10,8 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -42,15 +44,17 @@ class MainActivity : AppCompatActivity() {
     private val myPreference = "login"
     private val id = "idKey"
     private val ids = "idKey"
+    private val key = "nameKey"
     private val CHANNEL_ID_LOGIN = "channel_notification_02"
     private val notificationId2 = 102
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
         binding=ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+//        setContentView(binding?.root)
+        val view = binding.root
 
         inputUsername = binding.inputLayoutUsername
         inputPassword = binding.inputLayoutPassword
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnLogin = binding.btnLogin
         val btnRegister=binding.btnRegister
-
+        val moveHome = Intent(this@MainActivity,Home :: class.java)
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
 
@@ -71,7 +75,21 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //        }
-        val moveHome = Intent(this@MainActivity,Home :: class.java)
+        if(!sharedPreferences!!.contains(key)){
+            val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+            editor.putString(key, "terisi")
+            editor.apply()
+            setContentView(R.layout.activity_splash_screen)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                setContentView(view)
+            }, 3000)
+        }else{
+            setContentView(view)
+        }
+
+
+
 
 
         btnLogin.setOnClickListener(View.OnClickListener{
