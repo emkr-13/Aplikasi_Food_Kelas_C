@@ -38,17 +38,7 @@ class Home : AppCompatActivity() {
                     loadFragment(FragmentShowProfil())
                     return@setOnNavigationItemReselectedListener
                 }
-                R.id.menu_exit -> {
-                    loadFragment(FragmentExit())
-                    val builder : AlertDialog.Builder = AlertDialog.Builder(this@Home)
-                    builder.setMessage("Are You Sure Want To Exit")
-                        .setPositiveButton("Yes",object : DialogInterface.OnClickListener{
-                            override fun onClick(dialogInterface: DialogInterface, i:Int) {
-                                finishAndRemoveTask()
-                            }
-                        })
-                        .show()
-                }
+
             }
         }
     }

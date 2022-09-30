@@ -17,7 +17,5 @@
         android:icon="@drawable/ic_user_24"
         android:title="Profil" />
 
-    <item android:id="@+id/menu_exit"
-        android:icon="@drawable/ic_exit_24"
-        android:title="Exit App"/>
+
 </menu>

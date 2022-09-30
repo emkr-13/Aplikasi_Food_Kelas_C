@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.food.user.UserDB
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,6 +41,7 @@ class FragmentShowProfil : Fragment() {
         val showTanggal: TextView = view.findViewById(R.id.showTanggalLahir)
         val showNomorHP: TextView = view.findViewById(R.id.showNomorHP)
         val btnEdit: Button = view.findViewById(R.id.btnEdit)
+        val btnOut: Button = view.findViewById(R.id.btnExit)
 
         CoroutineScope(Dispatchers.IO).launch {
             val user= db?.userDao()?.getDataUser(sharedPreferences!!.getString(id,"")!!.toInt())?.get(0)
@@ -54,6 +56,22 @@ class FragmentShowProfil : Fragment() {
         btnEdit.setOnClickListener() {
             val intent = Intent(context, EditProfil::class.java)
             startActivity(intent)
+        }
+
+        btnOut.setOnClickListener {
+            activity?.let { it1 ->
+                MaterialAlertDialogBuilder(it1)
+                    .setTitle("Apakah Anda Ingin Keluar ?")
+                    .setNegativeButton("No") { dialog, which ->
+                        // Respond to negative button press
+                    }
+                    .setPositiveButton("yes") { dialog, which ->
+                        val moveLogin = Intent(activity, MainActivity::class.java)
+                        startActivity(moveLogin)
+                        activity?.finish()
+                    }
+                    .show()
+            }
         }
 
 
