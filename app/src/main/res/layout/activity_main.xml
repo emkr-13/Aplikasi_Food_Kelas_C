@@ -27,6 +27,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text=" Login"
+        android:textStyle="bold"
         android:textColor="#7FFF00"
         style="@style/TextAppearance.MaterialComponents.Headline4"
         android:textSize="40sp"

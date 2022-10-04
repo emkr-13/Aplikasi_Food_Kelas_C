@@ -28,7 +28,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:text="Profil Diri"
+        android:text="Profil saya"
         android:textColor="#8AE870"
         android:textSize="48sp" />
 
