@@ -2,23 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:paddingStart="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
 
 
     <TextView
         android:id="@+id/tv_details_Pesanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
+        android:layout_marginBottom="4dp"
         android:text="Harga"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
+        app:layout_constraintStart_toEndOf="@+id/tv_gambar" />
 
     <TextView
         android:id="@+id/tv_pesanan"
@@ -28,12 +25,21 @@
         android:text="Pesanan"
         app:layout_constraintBottom_toTopOf="@id/tv_details_Pesanan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_gambar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761"
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:id="@+id/tv_gambar"
+        android:layout_width="64dp"
+        android:layout_height="54dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        tools:layout_editor_absoluteX="-17dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:src="@tools:sample/avatars"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
