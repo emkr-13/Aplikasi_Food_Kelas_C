@@ -6,22 +6,26 @@ import android.view.View
 import android.widget.Toast
 import com.example.food.user.Constant
 import com.example.food.user.Makanan
-import com.example.food.user.MakananDB
+
+import com.example.food.user.UserDB
 import kotlinx.android.synthetic.main.activity_makanan_edit.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MakananEdit : AppCompatActivity() {
-    val db by lazy { MakananDB(this) }
+    val db by lazy { UserDB(this) }
     private var makanId: Int = 0
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_makanan_edit)
         setupView()
         setupListener()
 //
-        Toast.makeText(this, makanId.toString(), Toast.LENGTH_SHORT).show()
+
     }
 
     fun setupView(){
@@ -42,24 +46,21 @@ class MakananEdit : AppCompatActivity() {
             }
         }
     }
+
+
+
     private fun setupListener() {
 
         button_save.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-//
-
                 db.makananDao().addMakan(
                     Makanan(0,edit_title.text.toString(),edit_note.text.toString())
                 )
-
-
             }
         }
 
         button_update.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-
-
                 db.makananDao().updateMakan(
                     Makanan(makanId,edit_title.text.toString(),
                         edit_note.text.toString())
@@ -76,6 +77,8 @@ class MakananEdit : AppCompatActivity() {
             edit_note.setText(notes.harga)
         }
     }
+
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()

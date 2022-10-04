@@ -38,9 +38,11 @@ class MakananAdapater (private val notes: ArrayList<Makanan>, private val listen
         holder.view.icon_edit.setOnClickListener {
             listener.onUpdate(note)
         }
+
         holder.view.icon_delete.setOnClickListener {
             listener.onDelete(note)
         }
+
     }
     override fun getItemCount() = notes.size
     inner class NoteViewHolder( val view: View) : RecyclerView.ViewHolder(view)
@@ -56,5 +58,6 @@ class MakananAdapater (private val notes: ArrayList<Makanan>, private val listen
         fun onClick(makanan: Makanan)
         fun onUpdate(makanan: Makanan)
         fun onDelete(makanan: Makanan)
+
     }
 }
