@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="500dp"
         android:layout_height="800dp"
-        android:src="@drawable/tumpeng"
+        android:src="@drawable/loginfood"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,8 +127,10 @@
         android:layout_height="180dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logohome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
