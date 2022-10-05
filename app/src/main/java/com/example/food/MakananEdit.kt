@@ -24,12 +24,13 @@ class MakananEdit : AppCompatActivity() {
         setContentView(R.layout.activity_makanan_edit)
         setupView()
         setupListener()
+        Toast.makeText(this, makanId.toString(),Toast.LENGTH_SHORT).show()
 //
 
     }
 
     fun setupView(){
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType){
             Constant.TYPE_CREATE -> {
@@ -56,6 +57,7 @@ class MakananEdit : AppCompatActivity() {
                 db.makananDao().addMakan(
                     Makanan(0,edit_title.text.toString(),edit_note.text.toString())
                 )
+                finish()
             }
         }
 
@@ -65,7 +67,9 @@ class MakananEdit : AppCompatActivity() {
                     Makanan(makanId,edit_title.text.toString(),
                         edit_note.text.toString())
                 )
+                finish()
             }
+
         }
 
     }
