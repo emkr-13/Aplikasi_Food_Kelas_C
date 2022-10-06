@@ -1,6 +1,5 @@
-package com.example.food
+package com.example.food.Fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.food.R
+import com.example.food.RVPesananAdapter
 import com.example.food.entity.Pesanan
-import kotlinx.android.synthetic.main.fragment_list_pesanan.*
-
 
 
 class FragmentListPesanan : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.food
+package com.example.food.Fragment
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,13 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
-import android.widget.Button
-import android.widget.Toast
+import com.example.food.MakananAdapater
+import com.example.food.MakananEdit
 import com.example.food.databinding.FragmentListMakananBinding
-import com.example.food.databinding.FragmentShowProfilBinding
-import com.example.food.entity.Pesanan
 import com.example.food.user.Constant
 import com.example.food.user.Makanan
 import com.example.food.user.UserDB
@@ -50,7 +47,7 @@ class FragmentListMakanan : Fragment() {
     }
     private fun setupRecyclerView() {
         makananAdapater = MakananAdapater(arrayListOf(), object :
-            MakananAdapater.OnAdapterListener{
+            MakananAdapater.OnAdapterListener {
             override fun onClick(makanan: Makanan) {
                 intentEdit(makanan.id,Constant.TYPE_READ)
             }

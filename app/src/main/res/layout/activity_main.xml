@@ -12,6 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="500dp"
         android:layout_height="800dp"
+
         android:src="@drawable/loginfood"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,12 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:text=" Login"
         android:textStyle="bold"
-        android:textColor="#7FFF00"
+        android:textColor="#00E676"
         style="@style/TextAppearance.MaterialComponents.Headline4"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,28 +52,32 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:errorEnabled="true"
-            app:startIconDrawable="@drawable/ic_user_24"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="16dp"
             android:hint="Username"
             app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/ic_user_24"
 
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutPassword"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/ic_lock_24"
@@ -124,9 +129,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="376dp"
+        android:layout_width="360dp"
         android:layout_height="180dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"

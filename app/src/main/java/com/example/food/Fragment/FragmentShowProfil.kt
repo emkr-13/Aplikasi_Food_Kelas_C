@@ -1,4 +1,4 @@
-package com.example.food
+package com.example.food.Fragment
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import com.example.food.EditProfil
+import com.example.food.MainActivity
 import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
