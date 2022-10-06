@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.food.databinding.ActivityHomeBinding
+import com.example.food.databinding.ActivityRegisterBinding
 import com.example.food.user.Constant
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,16 +20,19 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Home : AppCompatActivity() {
-
+    private lateinit var binding: ActivityHomeBinding
     lateinit var bottomNav : BottomNavigationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+//        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
         loadFragment(FragmentHome())
-        bottomNav = findViewById(R.id.bottomNavigationView) as BottomNavigationView
+//        bottomNav = findViewById(R.id.bottomNavigationView) as BottomNavigationView
+        bottomNav = binding.bottomNavigationView as BottomNavigationView
         bottomNav.setOnNavigationItemReselectedListener {
             when (it.itemId) {
                 R.id.Home-> {

@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 import android.widget.Button
 import android.widget.Toast
+import com.example.food.databinding.FragmentListMakananBinding
+import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.entity.Pesanan
 import com.example.food.user.Constant
 import com.example.food.user.Makanan
@@ -28,13 +30,17 @@ class FragmentListMakanan : Fragment() {
 
     val db by lazy { activity?.let { UserDB(it) } }
     lateinit var makananAdapater: MakananAdapater
+    private var _binding: FragmentListMakananBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_list_makanan,container,false)
+        _binding = FragmentListMakananBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,8 +52,6 @@ class FragmentListMakanan : Fragment() {
         makananAdapater = MakananAdapater(arrayListOf(), object :
             MakananAdapater.OnAdapterListener{
             override fun onClick(makanan: Makanan) {
-//                Toast.makeText(requireContext().applicationContext, makanan.name, Toast.LENGTH_SHORT).show()
-//                Toast.makeText(requireContext().applicationContext, makanan.harga, Toast.LENGTH_SHORT).show()
                 intentEdit(makanan.id,Constant.TYPE_READ)
             }
             override fun onUpdate(makanan: Makanan) {
@@ -67,7 +71,7 @@ class FragmentListMakanan : Fragment() {
         val alertDialog = android.app.AlertDialog.Builder(requireContext())
         alertDialog.apply {
             setTitle("Confirmation")
-            setMessage("Are You Sure to delete this data From ${makanan.name}?")
+            setMessage("Kamu Yakin Menghapus menu makanan ini  ${makanan.name}?")
             setNegativeButton("Cancel", DialogInterface.OnClickListener
             { dialogInterface, i ->
                 dialogInterface.dismiss()

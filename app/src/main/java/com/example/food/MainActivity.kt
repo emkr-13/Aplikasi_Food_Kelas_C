@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
         val okPendingIntent= PendingIntent.getActivity(this,0,okIntent,PendingIntent.FLAG_MUTABLE)
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID_LOGIN)
-            .setSmallIcon(R.drawable.ic_baseline_arrow_back_24)
+            .setSmallIcon(R.drawable.ic_notifications_24)
             .setContentTitle("Berhasil Login "+  username   +" di FOOD")
             .setContentText("Selamat datang di FOOD")
             .setStyle( NotificationCompat.BigTextStyle().bigText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"))

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
@@ -23,6 +24,8 @@ class FragmentShowProfil : Fragment() {
     private val myPreference = "login"
     private val id = "idKey"
     var sharedPreferences: SharedPreferences? = null
+    private var _binding: FragmentShowProfilBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
@@ -30,18 +33,25 @@ class FragmentShowProfil : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show_profil, container, false)
+        _binding = FragmentShowProfilBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedPreferences = activity?.getSharedPreferences(myPreference, Context.MODE_PRIVATE)
-        val showUsername: TextView = view.findViewById(R.id.showUser)
-        val showEmail: TextView = view.findViewById(R.id.showEmail)
-        val showTanggal: TextView = view.findViewById(R.id.showTanggalLahir)
-        val showNomorHP: TextView = view.findViewById(R.id.showNomorHP)
-        val btnEdit: Button = view.findViewById(R.id.btnEdit)
-        val btnOut: Button = view.findViewById(R.id.btnExit)
+
+
+        val showUsername=binding.showUser
+        val showEmail=binding.showEmail
+        val showTanggal=binding.showTanggalLahir
+        val showNomorHP=binding.showNomorHP
+        val btnEdit=binding.btnEdit
+        val btnOut=binding.btnExit
+
+
+
 
         CoroutineScope(Dispatchers.IO).launch {
             val user= db?.userDao()?.getDataUser(sharedPreferences!!.getString(id,"")!!.toInt())?.get(0)

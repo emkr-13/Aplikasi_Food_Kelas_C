@@ -155,7 +155,7 @@ class Register : AppCompatActivity() {
         val okPendingIntent= PendingIntent.getActivity(this,0,okIntent,PendingIntent.FLAG_MUTABLE)
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID_REGISTER)
-            .setSmallIcon(R.drawable.ic_baseline_arrow_back_24)
+            .setSmallIcon(R.drawable.ic_notifications_24)
             .setContentTitle("Registrasi Berhasil")
             .setContentText("Halo " + username + " Kamu Berhasil Registrasi")
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
