@@ -27,4 +27,4 @@ class FragmentHome : Fragment() {
     }
 
 
-    }
+}
