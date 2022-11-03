@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.food.CameraPrev
 import com.example.food.EditProfil
 import com.example.food.MainActivity
 import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.android.synthetic.main.fragment_show_profil.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -65,6 +67,11 @@ class FragmentShowProfil : Fragment() {
 
         btnEdit.setOnClickListener() {
             val intent = Intent(context, EditProfil::class.java)
+            startActivity(intent)
+        }
+
+        btnPreview.setOnClickListener(){
+            val intent = Intent(context, CameraPrev::class.java)
             startActivity(intent)
         }
 

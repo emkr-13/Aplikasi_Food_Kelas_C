@@ -1,4 +1,4 @@
-package com.example.food.Camera
+package com.example.food
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,9 +9,6 @@ import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
-
-import com.example.food.Home
-import com.example.food.R
 
 class CameraPrev : AppCompatActivity() {
     private var mCamera: Camera? = null
@@ -30,9 +27,9 @@ class CameraPrev : AppCompatActivity() {
             val camera_view = findViewById<View>(R.id.FLCamera) as FrameLayout
             camera_view.addView(mCameraView)
         }
-        val intent = Intent (this, Home :: class.java)
+
         @SuppressLint("MissingInflatedId", "LocalSuppress") val imageClose =
             findViewById<View>(R.id.imgClose) as ImageButton
-        imageClose.setOnClickListener { intent }
+        imageClose.setOnClickListener { view: View? -> System.exit(0) }
     }
 }

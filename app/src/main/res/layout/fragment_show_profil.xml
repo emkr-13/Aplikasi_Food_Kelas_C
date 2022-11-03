@@ -127,42 +127,59 @@
             app:layout_constraintVertical_bias="0.0"
             tools:viewBindingIgnore="true" />
 
+    <Button
+        android:id="@+id/btnPreview"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Preview Foto "
+        app:backgroundTint="#2A3FCC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showNomorHP"
+        app:layout_constraintVertical_bias="0.0"
+        tools:viewBindingIgnore="true" />
 
-        <Button
-            android:id="@+id/btnEdit"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="Edit Profil"
-            app:backgroundTint="#39870D"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/showNomorHP"
-            app:layout_constraintVertical_bias="0.0"
-            tools:viewBindingIgnore="true" />
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Edit Profil"
+        app:backgroundTint="#39870D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPreview"
+        app:layout_constraintVertical_bias="0.0"
+        tools:viewBindingIgnore="true" />
 
-        <Button
-            android:id="@+id/btnExit"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="Keluar"
-            app:backgroundTint="#EF1212"
-            tools:viewBindingIgnore="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnEdit"
-            app:layout_constraintVertical_bias="0.0"/>
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Keluar"
+        app:backgroundTint="#EF1212"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEdit"
+        app:layout_constraintVertical_bias="0.0"
+        tools:viewBindingIgnore="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.food.Camera
+package com.example.food
 
 import android.content.Context
 import android.hardware.Camera
