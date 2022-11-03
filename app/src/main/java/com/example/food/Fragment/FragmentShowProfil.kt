@@ -51,6 +51,7 @@ class FragmentShowProfil : Fragment() {
         val showNomorHP=binding.showNomorHP
         val btnEdit=binding.btnEdit
         val btnOut=binding.btnExit
+        val btnPrev=binding.btnPreview
 
 
 
@@ -70,7 +71,7 @@ class FragmentShowProfil : Fragment() {
             startActivity(intent)
         }
 
-        btnPreview.setOnClickListener(){
+        btnPrev.setOnClickListener(){
             val intent = Intent(context, CameraPrev::class.java)
             startActivity(intent)
         }

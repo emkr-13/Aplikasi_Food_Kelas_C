@@ -1,6 +1,5 @@
-package com.example.food.GeoLocation
+package com.example.food
 
-import com.example.food.R
 import kotlinx.android.synthetic.main.layout_tooltip.view.*
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker

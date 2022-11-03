@@ -1,4 +1,4 @@
-package com.example.food.GeoLocation
+package com.example.food
 
 class ModelMain {
     lateinit var strName: String

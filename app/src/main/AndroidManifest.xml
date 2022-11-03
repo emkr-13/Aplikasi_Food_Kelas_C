@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Food"
         tools:targetApi="31">
         <activity
+            android:name=".Location"
+            android:exported="false" />
+        <activity
             android:name=".MakananEdit"
             android:exported="false" />
         <activity
