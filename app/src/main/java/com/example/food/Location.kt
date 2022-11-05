@@ -26,7 +26,7 @@ class Location : AppCompatActivity() {
         setContentView(R.layout.activity_location)
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
 
-        val geoPoint = GeoPoint(-7.78165, 118.414497)
+        val geoPoint = GeoPoint(-7.80139, 110.36472)
         mapView.setMultiTouchControls(true)
         mapView.controller.animateTo(geoPoint)
         mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)

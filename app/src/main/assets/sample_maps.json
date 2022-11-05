@@ -3,12 +3,12 @@
     {
       "geometry": {
         "location": {
-          "lat": -7.779433,
-          "lng": 110.415782
+          "lat": -7.763475,
+          "lng": 110.393472
         }
       },
-      "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
-      "vicinity": "Jl. Babarsari No.43, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+      "name": "Mie Gacoan Gejayan",
+      "vicinity": "Jl. Affandi No.9, Karang Gayam, Pelemkecut, Kec. Depok, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55222"
     },
     {
       "geometry": {
@@ -17,8 +17,18 @@
           "lng": 110.415023
         }
       },
-      "name": "Kantin Panorama",
-      "vicinity": "Jl. Babarsari No. 5-A Sleman Catur Tunggal Depok Sleman Daerah Istimewa, Yogyakarta, Janti, Caturtunggal, Yogyakarta, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+      "name": "Mie Gacoan Babarsari",
+      "vicinity": "Jl. Babarsari Ruko Raflesia Blok B7-B10, Jl. Raya Kledokan, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat":-7.788557,
+          "lng": 110.375170
+        }
+      },
+      "name": "Mie Gacoan Kotabaru",
+      "vicinity": "Jl. Sudarso No.13, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224"
     }
   ],
   "status": "OK"
