@@ -6,14 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.food.CameraPrev
 import com.example.food.Location
-import com.example.food.R
 import com.example.food.RVHomeAdapter
 import com.example.food.databinding.FragmentHomeBinding
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class FragmentHome : Fragment() {

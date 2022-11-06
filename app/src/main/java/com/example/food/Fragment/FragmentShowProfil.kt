@@ -8,13 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.food.CameraPrev
+import com.example.food.CameraActivity
 import com.example.food.EditProfil
 import com.example.food.MainActivity
 import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.fragment_show_profil.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,7 +42,7 @@ class FragmentShowProfil : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedPreferences = activity?.getSharedPreferences(myPreference, Context.MODE_PRIVATE)
-
+        val moveCam = Intent(getActivity(), CameraActivity::class.java)
 
         val showUsername=binding.showUser
         val showEmail=binding.showEmail
@@ -72,8 +71,8 @@ class FragmentShowProfil : Fragment() {
         }
 
         btnCamera.setOnClickListener(){
-            val intent = Intent(activity, CameraPrev::class.java)
-            startActivity(intent)
+
+            startActivity(moveCam)
         }
 
         btnOut.setOnClickListener {
