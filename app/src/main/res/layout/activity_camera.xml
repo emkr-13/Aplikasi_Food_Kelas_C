@@ -14,15 +14,14 @@
 
     <ImageButton
         android:id="@+id/imgClose"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="70dp"
+        android:layout_height="64dp"
         android:layout_gravity="center|bottom"
         android:background="@drawable/ic_baseline_close_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
+        app:layout_constraintVertical_bias="0.975" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

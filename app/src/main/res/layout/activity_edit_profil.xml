@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="500dp"
-        android:layout_height="800dp"
+        android:layout_width="783dp"
+        android:layout_height="994dp"
         android:src="@drawable/food"
-        tools:viewBindingIgnore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:viewBindingIgnore="true" />
 
 
     <TextView
@@ -80,11 +80,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ketikPassword"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:viewBindingIgnore="true"
-            android:hint="Password" />
+            android:hint="Password"
+            android:inputType="textPassword"
+            tools:viewBindingIgnore="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

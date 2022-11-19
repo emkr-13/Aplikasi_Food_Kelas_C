@@ -7,46 +7,61 @@
     android:padding="20dp"
     tools:context=".MakananEdit">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="500dp"
+        android:layout_height="770dp"
+        android:src="@drawable/sushi2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:viewBindingIgnore="true" />
+
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Nama Makanan"
+        android:textColor="#7FFF00"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
-        android:inputType="number"
         android:id="@+id/edit_note"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Harga"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_title"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:gravity="top"
-        />
+        android:hint="Harga"
+        android:textColor="#7FFF00"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_title" />
+
     <Button
         android:id="@+id/button_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="Simpan"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_note"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_note" />
+
     <Button
         android:id="@+id/button_update"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="UPDATE Data"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_save"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
