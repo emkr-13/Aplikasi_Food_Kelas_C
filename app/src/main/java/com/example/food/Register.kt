@@ -86,8 +86,11 @@ class Register : AppCompatActivity() {
                 checkRegis=true
             }
             if (!checkRegis)return@setOnClickListener
+//                ini buat room
+//            setupListener()
+//            ini buat JSON
+            regis()
 
-            setupListener()
             Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
 
             val bitmap = BitmapFactory.decodeResource(resources, R.drawable.logohome)
@@ -113,7 +116,7 @@ class Register : AppCompatActivity() {
         }
     }
 
-
+//    Ini register Room
     private fun setupListener(){
         val inputUsername=binding.ketikUsername.text.toString()
         val inputPassword=binding.ketikPassword.text.toString()
@@ -129,7 +132,7 @@ class Register : AppCompatActivity() {
         finish()
 
     }
-
+//Notifikasi
     private fun createNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val name = "Notification Register"
@@ -145,7 +148,7 @@ class Register : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel1)
         }
     }
-
+//Notifkasi
     private fun sendNotification1(username: String, bitmap : Bitmap){
         val intent : Intent = Intent (this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -177,7 +180,10 @@ class Register : AppCompatActivity() {
 
     }
 
+//ini RegisWeb
+    private  fun regis(){
 
+    }
 }
 
 

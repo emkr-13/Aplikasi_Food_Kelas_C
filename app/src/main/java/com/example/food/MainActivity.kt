@@ -27,6 +27,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
+//Login Ini Login
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
     lateinit var  mBundle: Bundle
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
 
-
+//      yang Bawah Ini Gak Usaha di Pakai
 //        Load Data Error if with
 //        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
 //        loadData(ids)
@@ -75,6 +77,8 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //        }
+
+
         if(!sharedPreferences!!.contains(key)){
             val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
             editor.putString(key, "terisi")
@@ -91,8 +95,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+//    Ini Btn Login
         btnLogin.setOnClickListener(View.OnClickListener{
+
             var  checkLogin = false
             val username: String= inputUsername.getEditText()?.getText().toString()
             val password: String= inputPassword.getEditText()?.getText().toString()
@@ -102,37 +107,36 @@ class MainActivity : AppCompatActivity() {
                 getBudle()
                 setText()
             }
-            CoroutineScope(Dispatchers.IO).launch {
-                val users = db.userDao().getUser()
-                Log.d("MainActivity ","dbResponse: $users")
+//            Ini Room Database
 
 
-
-
-
-                for(i in users){
-                    if(username == i.user && password ==i.password){
-                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                        editor.putString(id, i.id.toString())
-                        editor.apply()
-                        checkLogin=true
-
-                        createNotificationChannel()
-                        sendNotification2(username)
-                        break
-                    }
-                }
-
-                withContext(Dispatchers.Main){
-                    if((username == "admin" && password== "admin") || (checkLogin)){
-                        checkLogin = false
-
-                        startActivity(moveHome)
-                        finish()
-                    }
-                }
-
-            }
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val users = db.userDao().getUser()
+//                Log.d("MainActivity ","dbResponse: $users")
+//
+//                for(i in users){
+//                    if(username == i.user && password ==i.password){
+//                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+//                        editor.putString(id, i.id.toString())
+//                        editor.apply()
+//                        checkLogin=true
+//
+//                        createNotificationChannel()
+//                        sendNotification2(username)
+//                        break
+//                    }
+//                }
+//
+//                withContext(Dispatchers.Main){
+//                    if((username == "admin" && password== "admin") || (checkLogin)){
+//                        checkLogin = false
+//
+//                        startActivity(moveHome)
+//                        finish()
+//                    }
+//                }
+//
+//            }
 
             if (username.isEmpty()){
                 inputUsername.setError("Username must be filled with text")
@@ -144,9 +148,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (!checkLogin)return@OnClickListener
-
+            LoginApp()
         })
-
+//        Ini BTN register
         btnRegister.setOnClickListener {
             val moveRegis = Intent(this@MainActivity,Register :: class.java)
             startActivity(moveRegis)
@@ -170,7 +174,7 @@ class MainActivity : AppCompatActivity() {
         inputPassword.getEditText()?.setText(vPassword)
     }
 
-
+// Udah Ke pakai
     fun loadData(id: Int){
         inputUsername = findViewById(R.id.inputLayoutUsername)
 
@@ -188,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
+// Notifikasi
     private fun createNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val name = "Notification Register"
@@ -236,6 +240,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+//LoginJSON
+    private fun LoginApp(){
 
+    }
 
 }
