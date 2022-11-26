@@ -131,34 +131,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.514">
 
-        <ImageView
-            android:id="@+id/tv_makanan2"
-            android:layout_width="112dp"
-            android:layout_height="92dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pasta"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.296"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+        <Button
+            android:id="@+id/btnPdf"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Pdf"
+            app:backgroundTint="#FFEA00"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="61dp"
+            tools:layout_editor_absoluteY="25dp"
+            tools:viewBindingIgnore="true" />
 
-        <TextView
-            android:id="@+id/tv_judulmakanan2"
-            android:layout_width="127dp"
-            android:layout_height="27dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Pasta"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textSize="15dp"
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Scan"
+            app:backgroundTint="#FFEA00"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.875" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="61dp"
+            tools:viewBindingIgnore="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -252,7 +246,8 @@
         app:backgroundTint="#FFEA00"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="108dp"
-        tools:viewBindingIgnore="true" />
+        tools:viewBindingIgnore="true"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

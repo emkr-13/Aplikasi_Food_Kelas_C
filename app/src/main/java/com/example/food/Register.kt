@@ -87,9 +87,9 @@ class Register : AppCompatActivity() {
             }
             if (!checkRegis)return@setOnClickListener
 //                ini buat room
-//            setupListener()
+            setupListener()
 //            ini buat JSON
-            regis()
+//            regis()
 
             Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
 

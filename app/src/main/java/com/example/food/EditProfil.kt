@@ -75,9 +75,10 @@ class EditProfil : AppCompatActivity() {
                 checkRegis = false
             }
             else{
-                setupListener()
+//                setupListener()
                 Toast.makeText(applicationContext, username + " Edit", Toast.LENGTH_SHORT).show()
                 checkRegis=true
+                updateUser()
             }
             if (!checkRegis)return@setOnClickListener
 
@@ -122,5 +123,9 @@ class EditProfil : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun updateUser(){
+
     }
 }
