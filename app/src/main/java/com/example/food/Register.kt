@@ -77,46 +77,46 @@ class Register : AppCompatActivity() {
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
-//                FancyToast.makeText(
-//                    this,
-//                    "Password must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+                FancyToast.makeText(
+                    this,
+                    "Password must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (email.isEmpty()){
                 inputEmail.setError("Email must be filled with text")
-//                FancyToast.makeText(
-//                    this,
-//                    "Email must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+                FancyToast.makeText(
+                    this,
+                    "Email must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (nomorHP.isEmpty()){
                 inputNomorHP.setError("nomorHP must be filled with text")
-//                FancyToast.makeText(
-//                    this,
-//                    "Nomor HP must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+                FancyToast.makeText(
+                    this,
+                    "Nomor HP must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (tanggalLahir.isEmpty()){
                 inputTanggalLahir.setError("Tanggal must be filled with text")
-//                FancyToast.makeText(
-//                    this,
-//                    "Tanggal must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+                FancyToast.makeText(
+                    this,
+                    "Tanggal must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             else{
@@ -132,8 +132,8 @@ class Register : AppCompatActivity() {
 //            ini buat JSON
 //            regis()
 
-            Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
-
+//            Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
+            FancyToast.makeText(applicationContext,"Register Sucsess !", FancyToast.LENGTH_LONG, FancyToast.SUCCESS,true).show()
             val bitmap = BitmapFactory.decodeResource(resources, R.drawable.logohome)
             createNotificationChannel()
 

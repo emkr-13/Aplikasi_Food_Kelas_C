@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.503"
         tools:viewBindingIgnore="true" />
 
+
     <TextView
         android:id="@+id/tv_topik"
         android:layout_width="248dp"
@@ -59,7 +60,8 @@
                 android:layout_height="100dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/homeheader" />
+                android:src="@drawable/homeheader"
+                />
 
             <LinearLayout
                 android:layout_width="309dp"
@@ -93,7 +95,7 @@
     </com.google.android.material.card.MaterialCardView>
 
 
-    <ImageView
+    <com.lid.lib.LabelImageView
         android:id="@+id/tv_makanan1"
         android:layout_width="126dp"
         android:layout_height="99dp"
@@ -106,7 +108,10 @@
         app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.94"
+        app:label_backgroundColor="#C2185B"
+        app:label_orientation="LEFT_TOP"
+        app:label_text="Hot Promo"/>
 
     <TextView
         android:id="@+id/tv_judulmakanan1"
@@ -120,9 +125,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+        app:layout_constraintTop_toTopOf="@+id/materialCardView"
+        />
 
-    <ImageView
+    <com.lid.lib.LabelImageView
         android:id="@+id/tv_makanan"
         android:layout_width="120dp"
         android:layout_height="101dp"
@@ -133,7 +139,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.852"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_judulmakanan4" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_judulmakanan4"
+        app:label_backgroundColor="#C2185B"
+        app:label_orientation="LEFT_TOP"
+        app:label_text="Ikan Terbaik" />
 
     <TextView
         android:id="@+id/tv_judulmakanan"
