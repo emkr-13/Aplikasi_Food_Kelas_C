@@ -33,17 +33,17 @@ class FragmentHome : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         val adapter : RVHomeAdapter = RVHomeAdapter()
 
+        val btnscan=binding.btnScan
         val btnloc=binding.btnLog
 
-        val btnscan=binding.btnScan
-
-        btnloc.setOnClickListener(){
-            val intent = Intent(context, Location::class.java)
-            startActivity(intent)
-        }
 
         btnscan.setOnClickListener(){
             val intent = Intent(context, Scan::class.java)
+            startActivity(intent)
+        }
+
+        btnloc.setOnClickListener(){
+            val intent = Intent(context, Location::class.java)
             startActivity(intent)
         }
 

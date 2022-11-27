@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/rv_home"
     tools:context=".Fragment.FragmentHome">
 
@@ -49,7 +49,7 @@
                 android:src="@drawable/homeheader" />
 
             <LinearLayout
-                android:layout_width="308dp"
+                android:layout_width="309dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -79,165 +79,139 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/kolomMakanan2"
-        android:layout_width="196dp"
-        android:layout_height="162dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+
+    <ImageView
+        android:id="@+id/tv_makanan1"
+        android:layout_width="126dp"
+        android:layout_height="99dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ayampop"
+        app:layout_constraintBottom_toTopOf="@+id/tv_judulmakanan1"
+        app:layout_constraintEnd_toStartOf="@+id/tv_makanan4"
+        app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514">
+        app:layout_constraintVertical_bias="0.94" />
 
-        <ImageView
-            android:id="@+id/tv_makanan1"
-            android:layout_width="112dp"
-            android:layout_height="92dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="TODO"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ayampop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.261"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.228" />
+    <TextView
+        android:id="@+id/tv_judulmakanan1"
+        android:layout_width="152dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="332dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Nasi Padang Ayam Pop"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
 
-        <TextView
-            android:id="@+id/tv_judulmakanan1"
-            android:layout_width="152dp"
-            android:layout_height="38dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Nasi Padang Ayam Pop"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.951" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/tv_makanan"
+        android:layout_width="120dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="44dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ikantuna"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_judulmakanan4" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/kolomMakanan3"
-        android:layout_width="166dp"
-        android:layout_height="156dp"
+    <TextView
+        android:id="@+id/tv_judulmakanan"
+        android:layout_width="146dp"
+        android:layout_height="31dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Nasi Gulai Ikan Tuna"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514">
+        app:layout_constraintTop_toBottomOf="@+id/tv_makanan"
+        app:layout_constraintVertical_bias="0.052" />
 
-
-        <Button
-            android:id="@+id/btnScan"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Scan"
-            app:backgroundTint="#FFEA00"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="61dp"
-            tools:viewBindingIgnore="true" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tv_makanan5"
-        android:layout_width="189dp"
-        android:layout_height="151dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/tv_makanan4"
+        android:layout_width="119dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="56dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rendang"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/tv_topik" />
 
-        <ImageView
-            android:id="@+id/tv_makanan3"
-            android:layout_width="112dp"
-            android:layout_height="92dp"
-            android:layout_marginTop="16dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/terangbulan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_judulmakanan3"
-            android:layout_width="146dp"
-            android:layout_height="31dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Terang Bulan"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tv_judulmakanan5"
-        android:layout_width="188dp"
-        android:layout_height="149dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/tv_judulmakanan4"
+        android:layout_width="146dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Nasi Padang Rendang"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toEndOf="@+id/tv_judulmakanan1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_makanan4" />
+
+    <ImageView
+        android:id="@+id/tv_makanan3"
+        android:layout_width="120dp"
+        android:layout_height="102dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/terangbulan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_makanan"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kolomMakanan3">
+        app:layout_constraintTop_toBottomOf="@+id/tv_makanan1"
+        app:layout_constraintVertical_bias="0.321" />
 
-        <ImageView
-            android:id="@+id/tv_makanan4"
-            android:layout_width="112dp"
-            android:layout_height="92dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/rendang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.195"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.253" />
+    <TextView
+        android:id="@+id/tv_judulmakanan3"
+        android:layout_width="146dp"
+        android:layout_height="31dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Terang Bulan"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_judulmakanan"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_makanan3"
+        app:layout_constraintVertical_bias="0.047" />
 
-        <TextView
-            android:id="@+id/tv_judulmakanan4"
-            android:layout_width="146dp"
-            android:layout_height="31dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Nasi Padang Rendang"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.957" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_location_on_24"
+        tools:ignore="MissingConstraints"
+        tools:viewBindingIgnore="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnScan"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="Loc"
+        android:text="Scan"
         app:backgroundTint="#FFEA00"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="108dp"
-        tools:viewBindingIgnore="true"
-        tools:ignore="MissingConstraints" />
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:viewBindingIgnore="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>
