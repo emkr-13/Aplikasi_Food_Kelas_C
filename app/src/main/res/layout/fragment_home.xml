@@ -12,7 +12,7 @@
         android:id="@+id/imageshowprofile"
         android:layout_width="1198dp"
         android:layout_height="892dp"
-        android:src="@drawable/greenscreen"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"

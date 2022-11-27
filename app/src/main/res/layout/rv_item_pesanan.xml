@@ -7,18 +7,7 @@
     android:paddingStart="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/imageshowprofile"
-        android:layout_width="837dp"
-        android:layout_height="883dp"
-        android:src="@drawable/multifood"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447"
-        tools:viewBindingIgnore="true" />
+
 
     <TextView
         android:id="@+id/tv_details_Pesanan"
