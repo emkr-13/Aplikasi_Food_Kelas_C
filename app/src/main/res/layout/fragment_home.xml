@@ -131,16 +131,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.514">
 
-        <Button
-            android:id="@+id/btnPdf"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Pdf"
-            app:backgroundTint="#FFEA00"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="25dp"
-            tools:viewBindingIgnore="true" />
 
         <Button
             android:id="@+id/btnScan"

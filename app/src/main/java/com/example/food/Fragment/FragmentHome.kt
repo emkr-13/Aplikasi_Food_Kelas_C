@@ -34,17 +34,11 @@ class FragmentHome : Fragment() {
         val adapter : RVHomeAdapter = RVHomeAdapter()
 
         val btnloc=binding.btnLog
-        val  btnpdf=binding.btnPdf
+
         val btnscan=binding.btnScan
 
         btnloc.setOnClickListener(){
             val intent = Intent(context, Location::class.java)
-            startActivity(intent)
-        }
-
-
-        btnpdf.setOnClickListener(){
-            val intent = Intent(context, CetakPdf::class.java)
             startActivity(intent)
         }
 

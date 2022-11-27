@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.food.CetakPdf
 
 import com.example.food.MakananAdapater
 import com.example.food.MakananEdit
@@ -44,6 +45,12 @@ class FragmentListMakanan : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListener()
         setupRecyclerView()
+        val btnpdf=binding.btnPdf
+
+        btnpdf.setOnClickListener(){
+            val intent = Intent(context, CetakPdf::class.java)
+            startActivity(intent)
+        }
     }
     private fun setupRecyclerView() {
         makananAdapater = MakananAdapater(arrayListOf(), object :
@@ -114,6 +121,7 @@ class FragmentListMakanan : Fragment() {
                 .putExtra("intent_type", intentType)
         )
     }
+
 
 
 }
