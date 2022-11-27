@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                         editor.apply()
                         checkLogin=true
                         //import libary sucess
-                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
+//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true)
                         createNotificationChannel()
                         sendNotification2(username)
                         break
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                     if((username == "admin" && password== "admin") || (checkLogin)){
                         checkLogin = false
                         //import libary sucess
-                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
+//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
                         startActivity(moveHome)
                         finish()
                     }
@@ -142,25 +142,25 @@ class MainActivity : AppCompatActivity() {
             if (username.isEmpty()){
                inputUsername.setError("Username must be filled with text")
                 //import libary error
-                FancyToast.makeText(
-                    this,
-                    "Username must be filled with text",
-                    FancyToast.LENGTH_LONG,
-                    FancyToast.ERROR,
-                    true
-                ).show()
+//                FancyToast.makeText(
+//                    this,
+//                    "Username must be filled with text",
+//                    FancyToast.LENGTH_LONG,
+//                    FancyToast.ERROR,
+//                    true
+//                ).show()
                 checkLogin = false
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
                 //import libary error
-                FancyToast.makeText(
-                    this,
-                    "Password must be filled with text",
-                    FancyToast.LENGTH_LONG,
-                    FancyToast.ERROR,
-                    true
-                ).show()
+//                FancyToast.makeText(
+//                    this,
+//                    "Password must be filled with text",
+//                    FancyToast.LENGTH_LONG,
+//                    FancyToast.ERROR,
+//                    true
+//                ).show()
                 checkLogin = false
             }
 
