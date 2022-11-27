@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.example.food.CameraActivity
 import com.example.food.EditProfil
 import com.example.food.MainActivity
+import com.example.food.Scan
 import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -51,6 +52,12 @@ class FragmentShowProfil : Fragment() {
         val btnEdit=binding.btnEdit
         val btnOut=binding.btnExit
         val btnCamera=binding.btnPreview
+        val btnscan=binding.btnScan
+
+        btnscan.setOnClickListener(){
+            val intent = Intent(context, Scan::class.java)
+            startActivity(intent)
+        }
 
 
 

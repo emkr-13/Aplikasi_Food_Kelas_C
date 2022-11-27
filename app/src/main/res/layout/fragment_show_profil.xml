@@ -22,6 +22,7 @@
     android:layout_height="match_parent"
     >
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
@@ -33,10 +34,10 @@
         android:src="@drawable/ic_user_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008"
+        app:layout_constraintVertical_bias="0.0"
         tools:viewBindingIgnore="true" />
 
     <TextView
@@ -52,11 +53,10 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/showUser"
@@ -71,124 +71,131 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         app:layout_constraintVertical_bias="0.0"
         tools:viewBindingIgnore="true" />
 
-        <TextView
-            android:id="@+id/showEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="Email"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/showUser"
-            app:layout_constraintVertical_bias="0.0"
-            tools:viewBindingIgnore="true"
-            />
-
-        <TextView
-            android:id="@+id/showTanggalLahir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="Tanggal Lahir"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            tools:viewBindingIgnore="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/showEmail"
-            app:layout_constraintVertical_bias="0.0"
-            />
-
-
-        <TextView
-            android:id="@+id/showNomorHP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="Nomor HP"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/showTanggalLahir"
-            app:layout_constraintVertical_bias="0.0"
-            tools:viewBindingIgnore="true" />
-
-    <Button
-        android:id="@+id/btnPreview"
-        android:layout_width="250dp"
+    <TextView
+        android:id="@+id/showEmail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showUser"
+        app:layout_constraintVertical_bias="0.009"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/showTanggalLahir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Tanggal Lahir"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showEmail"
+        app:layout_constraintVertical_bias="0.003"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/showNomorHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Nomor HP"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showTanggalLahir"
+        app:layout_constraintVertical_bias="0.0"
+        tools:viewBindingIgnore="true" />
+
+    <Button
+        android:id="@+id/btnPreview"
+        android:layout_width="247dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:text="Preview Foto "
         app:backgroundTint="#2A3FCC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/showNomorHP"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747"
         tools:viewBindingIgnore="true" />
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="249dp"
+        android:layout_height="44dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
         android:text="Edit Profil"
         app:backgroundTint="#39870D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnPreview"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835"
         tools:viewBindingIgnore="true" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnExit"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="61dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
         android:text="Keluar"
         app:backgroundTint="#EF1212"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEdit"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/ic_baseline_exit"
+        tools:viewBindingIgnore="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnScan"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Scan"
+        app:backgroundTint="#FFEA00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnExit"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977"
+        app:srcCompat="@drawable/ic_baseline_scan"
         tools:viewBindingIgnore="true" />
 
 

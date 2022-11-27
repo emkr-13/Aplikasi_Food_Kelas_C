@@ -204,14 +204,5 @@
         tools:ignore="MissingConstraints"
         tools:viewBindingIgnore="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnScan"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Scan"
-        app:backgroundTint="#FFEA00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:viewBindingIgnore="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

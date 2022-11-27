@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.food.Location
 import com.example.food.R
 import com.example.food.RVPesananAdapter
+import com.example.food.Scan
 import com.example.food.databinding.FragmentListPesananBinding
 import com.example.food.entity.Pesanan
 
@@ -38,6 +39,9 @@ class FragmentListPesanan : Fragment() {
         rvPesanan.layoutManager = layoutManager
         rvPesanan.setHasFixedSize(true)
         rvPesanan.adapter = adapter
+
+
+
 
 
 
