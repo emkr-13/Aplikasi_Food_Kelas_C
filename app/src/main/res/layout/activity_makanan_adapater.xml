@@ -7,6 +7,18 @@
     android:padding="10dp"
     tools:context=".MakananAdapater">
 
+    <ImageView
+        android:id="@+id/imageshowprofile"
+        android:layout_width="999dp"
+        android:layout_height="869dp"
+        android:src="@drawable/snack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503"
+        tools:viewBindingIgnore="true" />
 
     <TextView
         android:id="@+id/text_title"
