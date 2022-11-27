@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
 import com.example.food.user.User
 import com.example.food.user.UserDB
+import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -64,25 +65,64 @@ class Register : AppCompatActivity() {
 
             if (username.isEmpty()){
                 inputUsername.setError("Username must be filled with text")
+                FancyToast.makeText(
+                    this,
+                    "Username must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
+                FancyToast.makeText(
+                    this,
+                    "Password must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (email.isEmpty()){
                 inputEmail.setError("Email must be filled with text")
+                FancyToast.makeText(
+                    this,
+                    "Email must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (nomorHP.isEmpty()){
                 inputNomorHP.setError("nomorHP must be filled with text")
+                FancyToast.makeText(
+                    this,
+                    "Nomor HP must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             if (tanggalLahir.isEmpty()){
                 inputTanggalLahir.setError("Tanggal must be filled with text")
+                FancyToast.makeText(
+                    this,
+                    "Tanggal must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkRegis = false
             }
             else{
+                //import libary sucess
+                FancyToast.makeText(this@Register,"Register Sucsess !",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.SUCCESS,true);
                 checkRegis=true
             }
             if (!checkRegis)return@setOnClickListener

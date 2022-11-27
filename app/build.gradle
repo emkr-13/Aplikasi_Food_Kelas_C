@@ -80,4 +80,6 @@ dependencies {
     implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
     implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
 
+    //implementasi libary toast
+    implementation 'io.github.shashank02051997:FancyToast:2.0.2'
 }

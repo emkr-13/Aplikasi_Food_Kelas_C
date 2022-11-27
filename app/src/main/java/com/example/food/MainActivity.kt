@@ -8,20 +8,19 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.food.databinding.ActivityMainBinding
 import com.example.food.user.UserDB
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -120,7 +119,8 @@ class MainActivity : AppCompatActivity() {
                         editor.putString(id, i.id.toString())
                         editor.apply()
                         checkLogin=true
-
+                        //import libary sucess
+                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
                         createNotificationChannel()
                         sendNotification2(username)
                         break
@@ -130,7 +130,8 @@ class MainActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main){
                     if((username == "admin" && password== "admin") || (checkLogin)){
                         checkLogin = false
-
+                        //import libary sucess
+                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
                         startActivity(moveHome)
                         finish()
                     }
@@ -139,11 +140,27 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (username.isEmpty()){
-                inputUsername.setError("Username must be filled with text")
+               inputUsername.setError("Username must be filled with text")
+                //import libary error
+                FancyToast.makeText(
+                    this,
+                    "Username must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkLogin = false
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
+                //import libary error
+                FancyToast.makeText(
+                    this,
+                    "Password must be filled with text",
+                    FancyToast.LENGTH_LONG,
+                    FancyToast.ERROR,
+                    true
+                ).show()
                 checkLogin = false
             }
 
