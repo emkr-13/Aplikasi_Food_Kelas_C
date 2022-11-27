@@ -8,6 +8,19 @@
     android:id="@+id/rv_home"
     tools:context=".Fragment.FragmentHome">
 
+    <ImageView
+        android:id="@+id/imageshowprofile"
+        android:layout_width="1198dp"
+        android:layout_height="892dp"
+        android:src="@drawable/greenscreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503"
+        tools:viewBindingIgnore="true" />
+
     <TextView
         android:id="@+id/tv_topik"
         android:layout_width="248dp"
