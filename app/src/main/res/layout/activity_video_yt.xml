@@ -4,6 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Video_YT">
+    android:orientation="vertical"
+    tools:context=".Video_YT"
+    android:id="@+id/videoLayout"
+    >
+
+    <com.google.android.exoplayer2.ui.PlayerControlView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerControllerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerView" app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:surface_type="surface_view"
+        android:minHeight="250dp"
+        app:use_controller="false"
+        android:id="@+id/playerView"
+        app:hide_during_ads="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0">
+    </com.google.android.exoplayer2.ui.PlayerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

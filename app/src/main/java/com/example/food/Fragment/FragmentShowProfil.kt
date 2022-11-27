@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.food.CameraActivity
-import com.example.food.EditProfil
-import com.example.food.MainActivity
-import com.example.food.Scan
+import com.example.food.*
 import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.user.UserDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -53,6 +50,7 @@ class FragmentShowProfil : Fragment() {
         val btnOut=binding.btnExit
         val btnCamera=binding.btnPreview
         val btnscan=binding.btnScan
+        val btnVideo=binding.btnVideo
 
         btnscan.setOnClickListener(){
             val intent = Intent(context, Scan::class.java)
@@ -74,6 +72,11 @@ class FragmentShowProfil : Fragment() {
 
         btnEdit.setOnClickListener() {
             val intent = Intent(context, EditProfil::class.java)
+            startActivity(intent)
+        }
+
+        btnVideo.setOnClickListener() {
+            val intent = Intent(context, Video_YT::class.java)
             startActivity(intent)
         }
 
