@@ -1,5 +1,6 @@
 package com.example.food
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -14,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class EditProfil : AppCompatActivity() {
     private lateinit var binding:ActivityEditProfilBinding
@@ -35,6 +37,24 @@ class EditProfil : AppCompatActivity() {
         val inputEmail=binding.ketikEmail
         val inputTanggalLahir=binding.ketikTanggalLahir
         val inputNomorHP=binding.ketikNomorHp
+
+        inputTanggalLahir.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            val date = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+
+                    // Display Selected date in textbox
+                    inputTanggalLahir.setText("" + dayOfMonth + "/" + monthOfYear + "/" + year)
+
+                }, year, month, day)
+
+            date.show()
+        }
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
         val id = sharedPreferences!!.getString(id,"")!!.toInt()

@@ -1,5 +1,6 @@
 package com.example.food
 
+import android.app.DatePickerDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -54,7 +55,27 @@ class Register : AppCompatActivity() {
         val inputNomorHP=binding.ketikNomorHp
 
 
+        inputTanggalLahir.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            val date = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+
+                    // Display Selected date in textbox
+                    inputTanggalLahir.setText("" + dayOfMonth + "/" + monthOfYear + "/" + year)
+
+                }, year, month, day)
+
+            date.show()
+        }
+
+
         btnRegister.setOnClickListener {
+
             var checkRegis = false
             val intent = Intent (this,MainActivity :: class.java)
 
