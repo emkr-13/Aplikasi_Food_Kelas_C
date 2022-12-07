@@ -21,18 +21,26 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.android.volley.AuthFailureError
+import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
+import com.example.food.api.MakananApi
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
-import com.example.food.user.User
+import com.example.food.model.User
+import com.example.food.api.UserApi
+import com.example.food.model.Makanan
 import com.example.food.user.UserDB
+import com.google.gson.Gson
 import com.shashank.sony.fancytoastlib.FancyToast
 //import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.lang.ref.Cleaner
+import java.nio.charset.StandardCharsets
 import javax.xml.datatype.DatatypeConstants.MONTHS
 import java.util.*
 
@@ -192,21 +200,21 @@ class Register : AppCompatActivity() {
         val inputTanggalLahir = binding.ketikTanggalLahir.text.toString()
         val inputNomorHP = binding.ketikNomorHp.text.toString()
 
-        CoroutineScope(Dispatchers.IO).launch {
-
-            db.userDao().addUser(
-                User(
-                    0,
-                    inputUsername,
-                    inputPassword,
-                    inputEmail,
-                    inputNomorHP,
-                    inputTanggalLahir
-                )
-            )
-
-        }
-        finish()
+//        CoroutineScope(Dispatchers.IO).launch {
+//
+//            db.userDao().addUser(
+//                User(
+//                    0,
+//                    inputUsername,
+//                    inputPassword,
+//                    inputEmail,
+//                    inputNomorHP,
+//                    inputTanggalLahir
+//                )
+//            )
+//
+//        }
+//        finish()
 
     }
 
@@ -266,6 +274,70 @@ class Register : AppCompatActivity() {
     //ini RegisWeb
     private fun regis() {
 
+    }
+    private fun Regis(){
+        val User = User(
+            binding.ketikUsername.text.toString(),
+            binding.ketikPassword.text.toString(),
+            binding.ketikEmail.text.toString(),
+            binding.ketikTanggalLahir.text.toString(),
+            binding.ketikNomorHp.text.toString()
+
+        )
+        val stringRequest:StringRequest =
+            object :StringRequest(Method.POST, UserApi.BASE_URL, Response.Listener { response ->
+                val gson = Gson()
+                var pengguna = gson.fromJson(response, User::class.java)
+
+                if(pengguna !=null)
+                    Toast.makeText(
+                        this@Register,
+                        "Data Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
+                    val mBundle = Bundle()
+                    val moveLogin = Intent(this, MainActivity::class.java)
+                mBundle.putString("username", binding.ketikUsername.text.toString())
+                mBundle.putString("password", binding.ketikPassword.text.toString())
+                mBundle.putString("email",binding.ketikEmail.text.toString())
+                mBundle.putString("tanggalLahir",binding.ketikTanggalLahir.text.toString())
+                mBundle.putString("nomorHP",binding.ketikTanggalLahir.text.toString())
+                moveLogin.putExtra("Register",mBundle)
+                startActivity(moveLogin)
+                finish()
+
+            },
+                Response.ErrorListener { error ->
+
+                    try {
+                        val responseBody =
+                            String(error.networkResponse.data, StandardCharsets.UTF_8)
+                        val errors = JSONObject(responseBody)
+                        Toast.makeText(
+                            this,
+                            errors.getString("message"),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } catch (e: Exception) {
+                        Toast.makeText(this@Register, e.message, Toast.LENGTH_SHORT).show()
+                    }
+                }){
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers["Accept"] = "application/json"
+                    return headers
+                }
+
+                @Throws(AuthFailureError::class)
+                override fun getBody(): ByteArray {
+                    val gson = Gson()
+                    val requestBody = gson.toJson(User)
+                    return requestBody.toByteArray(StandardCharsets.UTF_8)
+                }
+
+                override fun getBodyContentType(): String {
+                    return "application/json"
+                }
+            }
     }
 }
 
