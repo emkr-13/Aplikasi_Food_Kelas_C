@@ -13,6 +13,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -284,8 +285,9 @@ class Register : AppCompatActivity() {
             binding.ketikNomorHp.text.toString()
 
         )
+
         val stringRequest:StringRequest =
-            object :StringRequest(Method.POST, UserApi.BASE_URL, Response.Listener { response ->
+            object :StringRequest(Method.POST, UserApi.ADD_URL, Response.Listener { response ->
                 val gson = Gson()
                 var pengguna = gson.fromJson(response, User::class.java)
 

@@ -13,18 +13,28 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.android.volley.AuthFailureError
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.example.food.api.UserApi
 import com.example.food.databinding.ActivityMainBinding
+import com.example.food.model.LoginUser
 import com.example.food.user.UserDB
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
 import com.shashank.sony.fancytoastlib.FancyToast
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import java.nio.charset.StandardCharsets
 
 
 //Login Ini Login
@@ -66,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         val moveHome = Intent(this@MainActivity,Home :: class.java)
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
-
+        LoginApp()
 //      yang Bawah Ini Gak Usaha di Pakai
 //        Load Data Error if with
 //        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
@@ -259,7 +269,62 @@ class MainActivity : AppCompatActivity() {
     }
 //LoginJSON
     private fun LoginApp(){
+        val userLogin = LoginUser(
+            binding.inputLayoutUsername.editText?.getText().toString(),
+            binding.inputLayoutPassword.editText?.getText().toString()
 
-    }
+        )
+//    Log.d("cekRegister", userLogin.toString())
+    val user: StringRequest =
+        object : StringRequest(Method.PUT, UserApi.GET_BY_ID_URL, Response.Listener { response ->
+            val gson = Gson()
+            var login = gson.fromJson(response, userLogin::class.java)
+            val jsonObject = JSONObject(response)
+            if (login != null) {
+                Toast.makeText(this@MainActivity, "Login Berhasil", Toast.LENGTH_SHORT).show()
+            }
+            val moveHome = Intent(this@MainActivity, Home::class.java)
+            val userID : SharedPreferences.Editor = sharedPreferences!!.edit()
+            userID.putInt("id", jsonObject.getJSONObject("user").getInt("id"))
+            userID.apply()
+            startActivity(moveHome)
+            finish()
+
+        },Response.ErrorListener { error ->
+            try {
+                val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
+                val errors = JSONObject(responseBody)
+                Toast.makeText(
+                    this@MainActivity,
+                    errors.getString("message"),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
+            }
+
+        }) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Accept"] = "application/json"
+                return headers
+            }
+
+            @Throws(AuthFailureError::class)
+            override fun getBody(): ByteArray {
+                val gson = Gson()
+                val requestBody = gson.toJson(userLogin)
+                return requestBody.toByteArray(StandardCharsets.UTF_8)
+            }
+
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+
 
 }
+
+}
+
