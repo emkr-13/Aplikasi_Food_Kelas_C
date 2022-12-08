@@ -21,25 +21,36 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.food.api.UserApi
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
+import com.example.food.model.user
 import com.example.food.user.User
 import com.example.food.user.UserDB
+import com.google.gson.Gson
 import com.shashank.sony.fancytoastlib.FancyToast
 //import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.lang.ref.Cleaner
+import java.nio.charset.StandardCharsets
 import javax.xml.datatype.DatatypeConstants.MONTHS
 import java.util.*
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    val db by lazy { UserDB(this) }
+//    val db by lazy { UserDB(this) }
     private val CHANNEL_ID_REGISTER = "channel_notification_01"
     private val notificationId1 = 101
+    private var queue: RequestQueue? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -53,7 +64,7 @@ class Register : AppCompatActivity() {
         val inputEmail=binding.ketikEmail
         val inputTanggalLahir=binding.ketikTanggalLahir
         val inputNomorHP=binding.ketikNomorHp
-
+        queue = Volley.newRequestQueue(this)
 
         inputTanggalLahir.setOnClickListener {
             val c = Calendar.getInstance()
@@ -149,9 +160,9 @@ class Register : AppCompatActivity() {
             }
             if (!checkRegis)return@setOnClickListener
 //                ini buat room
-            setupListener()
-//            ini buat JSON
-//            regis()
+//            setupListener()
+//            ini buat APi
+            regis()
 
 //            Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
             FancyToast.makeText(applicationContext,"Register Sucsess !", FancyToast.LENGTH_LONG, FancyToast.SUCCESS,true).show()
@@ -188,7 +199,7 @@ class Register : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
 
-            db.userDao().addUser(User(0,inputUsername,inputPassword,inputEmail,inputNomorHP,inputTanggalLahir))
+//            db.userDao().addUser(User(0,inputUsername,inputPassword,inputEmail,inputNomorHP,inputTanggalLahir))
 
         }
         finish()
@@ -244,7 +255,67 @@ class Register : AppCompatActivity() {
 
 //ini RegisWeb
     private  fun regis(){
+    val register = user(
+        binding.ketikUsername.text.toString(),
+        binding.ketikPassword.text.toString(),
+        binding.ketikEmail.text.toString(),
+        binding.ketikTanggalLahir.text.toString(),
+        binding.ketikNomorHp.text.toString()
+    )
 
+    val stringRequest: StringRequest =
+        object : StringRequest(
+            Method.POST,
+            UserApi.register,
+            Response.Listener { response ->
+
+                Toast.makeText(this@Register, JSONObject(response).getString("message"), Toast.LENGTH_SHORT).show()
+
+
+                val intent = Intent(this, MainActivity::class.java)
+                val mBundle = Bundle()
+//                Timber.d("Berhasil Login")
+//                mBundle.putString("username",binding.etUsername.text.toString())
+//                mBundle.putString("password",binding.etPassword.text.toString())
+//                intent.putExtra("register", mBundle)
+                startActivity(intent)
+                finish()
+            },
+            Response.ErrorListener { error ->
+                try {
+                    val responseBody =
+                        String(error.networkResponse.data, StandardCharsets.UTF_8)
+                    val errors = JSONObject(responseBody)
+                    Toast.makeText(
+                        this@Register,
+                        errors.getString("message"),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } catch (e: Exception) {
+                    Toast.makeText(this@Register, e.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Accept"] = "application/json"
+                return headers
+            }
+
+            @Throws(AuthFailureError::class)
+            override fun getBody(): ByteArray {
+                val gson = Gson()
+                val requestBody = gson.toJson(register)
+                return requestBody.toByteArray(StandardCharsets.UTF_8)
+            }
+
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+
+    queue!!.add(stringRequest)
     }
 }
 
