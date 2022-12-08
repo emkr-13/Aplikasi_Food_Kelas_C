@@ -1,5 +1,5 @@
 package com.example.food.model
 
-class Makanan (var name:String,var harga:String) {
+class food (var nama:String, var harga:String) {
     var id: Long? = null
 }
