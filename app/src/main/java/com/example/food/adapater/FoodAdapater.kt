@@ -48,7 +48,7 @@ Filterable{
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         val makanan = filteredFoodList[position]
-        holder.tvNama.text=makanan.name
+        holder.tvNama.text=makanan.nama
         holder.tvHarga.text=makanan.harga
 
         holder.btnDelete.setOnClickListener{
@@ -85,7 +85,7 @@ Filterable{
                     filtered.addAll(foodList)
                 }else{
                     for(mahasiswa in foodList){
-                        if(mahasiswa.name.lowercase(Locale.getDefault())
+                        if(mahasiswa.nama.lowercase(Locale.getDefault())
                                 .contains(charSequenceString.lowercase(Locale.getDefault()))
                         ) filtered.add(mahasiswa)
                     }

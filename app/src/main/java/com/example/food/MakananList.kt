@@ -83,7 +83,11 @@ class MakananList : AppCompatActivity() {
         val stringRequest: StringRequest = object :
             StringRequest(Method.GET, MakananApi.GET_ALL_URL, Response.Listener { response ->
                 val gson = Gson()
-                var foods: Array<food> = gson.fromJson(response, Array<food>::class.java)
+                val jsonObject = JSONObject(response)
+                var foods: Array<food> = gson.fromJson(
+                    jsonObject.getJSONArray("data").toString(),
+                    Array<food>::class.java
+                )
 
                 adapter!!.setMakanananList(foods)
                 adapter!!.filter.filter(svMakanan!!.query)

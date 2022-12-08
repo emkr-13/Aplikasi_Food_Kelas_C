@@ -42,10 +42,10 @@ class AddEditMakanan : AppCompatActivity() {
         val tvTitle = findViewById<TextView>(R.id.tv_title)
         val id = intent.getLongExtra("id", -1)
         if(id==-1L) {
-            tvTitle.setText("Tambah Mahasiswa")
+            tvTitle.setText("Tambah Makanan")
             btnSave.setOnClickListener { createMakanan() }
         } else {
-            tvTitle.setText("Edit Mahasiswa")
+            tvTitle.setText("Edit Makanan")
             getMakananById(id)
 
             btnSave.setOnClickListener {updateMakanan(id)}
@@ -70,7 +70,7 @@ class AddEditMakanan : AppCompatActivity() {
                 val gson = Gson()
                 val mahasiswa = gson.fromJson(response, food::class.java)
 
-                etNama!!.setText(mahasiswa.name)
+                etNama!!.setText(mahasiswa.nama)
                 etHarga!!.setText(mahasiswa.harga)
 
 

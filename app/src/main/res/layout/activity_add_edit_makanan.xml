@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
-                android:hint="Nama Mahasiswa">
+                android:hint="Nama Makanan">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nama"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
-                android:hint="NPM">
+                android:hint="Harga">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_harga"
