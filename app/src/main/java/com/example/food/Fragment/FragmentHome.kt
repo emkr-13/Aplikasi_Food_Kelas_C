@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.food.CetakPdf
-import com.example.food.Location
-import com.example.food.RVHomeAdapter
-import com.example.food.Scan
+import com.example.food.*
 import com.example.food.databinding.FragmentHomeBinding
 
 
@@ -32,18 +29,19 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(context)
         val adapter : RVHomeAdapter = RVHomeAdapter()
-
-//        val btnscan=binding.btnScan
+        val btnmkn=binding.btnMkn
         val btnloc=binding.btnLog
 
 
-//        btnscan.setOnClickListener(){
-//            val intent = Intent(context, Scan::class.java)
-//            startActivity(intent)
-//        }
+
 
         btnloc.setOnClickListener(){
             val intent = Intent(context, Location::class.java)
+            startActivity(intent)
+        }
+
+        btnmkn.setOnClickListener(){
+            val intent = Intent(context, MakananList::class.java)
             startActivity(intent)
         }
 

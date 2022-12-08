@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cv_mahasiswa"
+    android:id="@+id/cv_makanan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
@@ -30,29 +30,11 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Nama Mahasiswa" />
+                android:text="Nama Makanan" />
 
-            <TextView
-                android:id="@+id/tv_npm"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="NPM"
-                android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tv_fakultas"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Fakultas"
-                android:textSize="15sp"/>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,12 +45,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_prodi"
+                    android:id="@+id/tv_harga"
                     style="@style/TextAppearance.MaterialComponents.Body2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Prodi" />
+                    android:text="Harga" />
 
                 <ImageButton
                     android:id="@+id/btn_delete"

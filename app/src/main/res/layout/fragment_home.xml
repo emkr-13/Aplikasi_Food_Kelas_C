@@ -226,5 +226,14 @@
         tools:ignore="MissingConstraints"
         tools:viewBindingIgnore="true" />
 
+    <Button
+        android:id="@+id/btn_mkn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu Makanan"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="634dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
