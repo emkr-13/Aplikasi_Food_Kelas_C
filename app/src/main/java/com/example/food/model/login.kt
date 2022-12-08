@@ -1,4 +1,4 @@
 package com.example.food.model
 
-class login {
+class login (var username: String, var password: String) {
 }
