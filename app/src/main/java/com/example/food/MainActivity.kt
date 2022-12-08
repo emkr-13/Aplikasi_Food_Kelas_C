@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
         binding=ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding?.root)
+
         val view = binding.root
 
         inputUsername = binding.inputLayoutUsername
@@ -67,15 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
 
-//      yang Bawah Ini Gak Usaha di Pakai
-//        Load Data Error if with
-//        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
-//        loadData(ids)
-//        CoroutineScope(Dispatchers.IO).launch{
-//            if(db.userDao().getUser().isNotEmpty()){
-//
-//            }
-//        }
+
 
 
         if(!sharedPreferences!!.contains(key)){
@@ -101,66 +93,48 @@ class MainActivity : AppCompatActivity() {
             val username: String= inputUsername.getEditText()?.getText().toString()
             val password: String= inputPassword.getEditText()?.getText().toString()
 
-            var intent : Intent=intent
-            if (intent.hasExtra("register")){
-                getBudle()
-                setText()
-            }
+
 //            Ini Room Database
 
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val users = db.userDao().getUser()
-                Log.d("MainActivity ","dbResponse: $users")
-
-                for(i in users){
-                    if(username == i.user && password ==i.password){
-                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                        editor.putString(id, i.id.toString())
-                        editor.apply()
-                        checkLogin=true
-                        //import libary sucess
-//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true)
-                        createNotificationChannel()
-                        sendNotification2(username)
-                        break
-                    }
-                }
-
-                withContext(Dispatchers.Main){
-                    if((username == "admin" && password== "admin") || (checkLogin)){
-                        checkLogin = false
-                        //import libary sucess
-//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
-                        startActivity(moveHome)
-                        finish()
-                    }
-                }
-
-            }
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val users = db.userDao().getUser()
+//                Log.d("MainActivity ","dbResponse: $users")
+//
+//                for(i in users){
+//                    if(username == i.user && password ==i.password){
+//                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+//                        editor.putString(id, i.id.toString())
+//                        editor.apply()
+//                        checkLogin=true
+//                        //import libary sucess
+////                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true)
+//                        createNotificationChannel()
+//                        sendNotification2(username)
+//                        break
+//                    }
+//                }
+//
+//                withContext(Dispatchers.Main){
+//                    if((username == "admin" && password== "admin") || (checkLogin)){
+//                        checkLogin = false
+//                        //import libary sucess
+////                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
+//                        startActivity(moveHome)
+//                        finish()
+//                    }
+//                }
+//
+//            }
 
             if (username.isEmpty()){
                inputUsername.setError("Username must be filled with text")
-                //import libary error
-//                FancyToast.makeText(
-//                    this,
-//                    "Username must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+
                 checkLogin = false
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
-                //import libary error
-//                FancyToast.makeText(
-//                    this,
-//                    "Password must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+
                 checkLogin = false
             }
 
