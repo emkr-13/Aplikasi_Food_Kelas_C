@@ -25,6 +25,7 @@ class MakananEdit : AppCompatActivity() {
         setupView()
         setupListener()
         Toast.makeText(this, makanId.toString(),Toast.LENGTH_SHORT).show()
+//
 
     }
 

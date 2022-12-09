@@ -84,18 +84,13 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".Register"
-            android:exported="true" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".EditProfil"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

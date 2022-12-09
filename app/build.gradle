@@ -79,18 +79,9 @@ dependencies {
     //implementasi libary extrax youtube
     implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
     implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
-    //implementasi Ui libary toast
-    implementation 'io.github.shashank02051997:FancyToast:2.0.2'
-    //implementasi Ui LAbel View
-    implementation 'com.github.linger1216:labelview:v1.1.2'
 
-    // Unit Testing
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test:rules:1.4.0'
-    // Optional -- Hamcrest library
-    androidTestImplementation 'org.hamcrest:hamcrest-library:1.3'
-    // Optional -- UI testing with Espresso
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    // Optional -- UI testing with Automator
-    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    //implementasi libary toast
+    implementation 'io.github.shashank02051997:FancyToast:2.0.2'
+//    Ui LAbel View
+    implementation 'com.github.linger1216:labelview:v1.1.2'
 }
