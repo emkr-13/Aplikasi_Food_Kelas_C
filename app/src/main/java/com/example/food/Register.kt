@@ -4,7 +4,7 @@ import android.app.DatePickerDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
+
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -13,36 +13,23 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
+
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.android.volley.AuthFailureError
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.example.food.api.MakananApi
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+
 import com.example.food.databinding.ActivityRegisterBinding
 
-import com.example.food.api.UserApi
+
+import com.example.food.user.User
 
 import com.example.food.user.UserDB
-import com.google.gson.Gson
+
 import com.shashank.sony.fancytoastlib.FancyToast
-//import com.shashank.sony.fancytoastlib.FancyToast
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.json.JSONObject
-import java.lang.ref.Cleaner
-import java.nio.charset.StandardCharsets
-import javax.xml.datatype.DatatypeConstants.MONTHS
+
 import java.util.*
 
 class Register : AppCompatActivity() {
@@ -199,21 +186,21 @@ class Register : AppCompatActivity() {
         val inputTanggalLahir = binding.ketikTanggalLahir.text.toString()
         val inputNomorHP = binding.ketikNomorHp.text.toString()
 
-//        CoroutineScope(Dispatchers.IO).launch {
-//
-//            db.userDao().addUser(
-//                User(
-//                    0,
-//                    inputUsername,
-//                    inputPassword,
-//                    inputEmail,
-//                    inputNomorHP,
-//                    inputTanggalLahir
-//                )
-//            )
-//
-//        }
-//        finish()
+        CoroutineScope(Dispatchers.IO).launch {
+
+            db.userDao().addUser(
+                User(
+                    0,
+                    inputUsername,
+                    inputPassword,
+                    inputEmail,
+                    inputNomorHP,
+                    inputTanggalLahir
+                )
+            )
+
+        }
+        finish()
 
     }
 

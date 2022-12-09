@@ -13,28 +13,17 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.android.volley.AuthFailureError
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.example.food.api.UserApi
 import com.example.food.databinding.ActivityMainBinding
-import com.example.food.model.LoginUser
 import com.example.food.user.UserDB
 import com.google.android.material.textfield.TextInputLayout
-import com.google.gson.Gson
-import com.shashank.sony.fancytoastlib.FancyToast
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
-import java.nio.charset.StandardCharsets
 
 
 //Login Ini Login
