@@ -69,18 +69,18 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        if(!sharedPreferences!!.contains(key)){
-            val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-            editor.putString(key, "terisi")
-            editor.apply()
-            setContentView(R.layout.activity_splash_screen)
-
-            Handler(Looper.getMainLooper()).postDelayed({
-                setContentView(view)
-            }, 3000)
-        }else{
-            setContentView(view)
-        }
+//        if(!sharedPreferences!!.contains(key)){
+//            val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+//            editor.putString(key, "terisi")
+//            editor.apply()
+//            setContentView(R.layout.activity_splash_screen)
+//
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                setContentView(view)
+//            }, 3000)
+//        }else{
+//            setContentView(view)
+//        }
 
 
 
@@ -100,33 +100,33 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val users = db.userDao().getUser()
-                Log.d("MainActivity ","dbResponse: $users")
-
-                for(i in users){
-                    if(username == i.user && password ==i.password){
-                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                        editor.putString(id, i.id.toString())
-                        editor.apply()
-                        checkLogin=true
-
-                        createNotificationChannel()
-                        sendNotification2(username)
-                        break
-                    }
-                }
-
-                withContext(Dispatchers.Main){
-                    if((username == "admin" && password== "admin") || (checkLogin)){
-                        checkLogin = false
-
-                        startActivity(moveHome)
-                        finish()
-                    }
-                }
-
-            }
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val users = db.userDao().getUser()
+//                Log.d("MainActivity ","dbResponse: $users")
+//
+//                for(i in users){
+//                    if(username == i.user && password ==i.password){
+//                        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+//                        editor.putString(id, i.id.toString())
+//                        editor.apply()
+//                        checkLogin=true
+//
+//                        createNotificationChannel()
+//                        sendNotification2(username)
+//                        break
+//                    }
+//                }
+//
+//                withContext(Dispatchers.Main){
+//                    if((username == "admin" && password== "admin") || (checkLogin)){
+//                        checkLogin = false
+//
+//                        startActivity(moveHome)
+//                        finish()
+//                    }
+//                }
+//
+//            }
 
             if (username.isEmpty()){
                inputUsername.setError("Username must be filled with text")
@@ -142,6 +142,9 @@ class MainActivity : AppCompatActivity() {
             if (!checkLogin)return@OnClickListener
 //            LoginApp()
         })
+
+
+
 //        Ini BTN register
         btnRegister.setOnClickListener {
             val moveRegis = Intent(this@MainActivity,Register :: class.java)
