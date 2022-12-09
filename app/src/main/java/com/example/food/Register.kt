@@ -29,9 +29,9 @@ import com.example.food.api.MakananApi
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.example.food.databinding.ActivityRegisterBinding
-import com.example.food.model.User
+
 import com.example.food.api.UserApi
-import com.example.food.model.Makanan
+
 import com.example.food.user.UserDB
 import com.google.gson.Gson
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -151,10 +151,8 @@ class Register : AppCompatActivity() {
                 ).show()
                 checkRegis = false
             } else {
-                //import libary sucess
-//                FancyToast.makeText(this@Register,"Register Sucsess !",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.SUCCESS,true);
+
+
                 checkRegis = true
             }
             if (!checkRegis) return@setOnClickListener
@@ -163,7 +161,7 @@ class Register : AppCompatActivity() {
 //            ini buat JSON
 //            regis()
 
-//            Toast.makeText(applicationContext, username + " register", Toast.LENGTH_SHORT).show()
+
             FancyToast.makeText(
                 applicationContext,
                 "Register Sucsess !",
@@ -276,71 +274,7 @@ class Register : AppCompatActivity() {
     private fun regis() {
 
     }
-    private fun Regis(){
-        val User = User(
-            binding.ketikUsername.text.toString(),
-            binding.ketikPassword.text.toString(),
-            binding.ketikEmail.text.toString(),
-            binding.ketikTanggalLahir.text.toString(),
-            binding.ketikNomorHp.text.toString()
 
-        )
-
-        val stringRequest:StringRequest =
-            object :StringRequest(Method.POST, UserApi.ADD_URL, Response.Listener { response ->
-                val gson = Gson()
-                var pengguna = gson.fromJson(response, User::class.java)
-
-                if(pengguna !=null)
-                    Toast.makeText(
-                        this@Register,
-                        "Data Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
-                    val mBundle = Bundle()
-                    val moveLogin = Intent(this, MainActivity::class.java)
-                mBundle.putString("username", binding.ketikUsername.text.toString())
-                mBundle.putString("password", binding.ketikPassword.text.toString())
-                mBundle.putString("email",binding.ketikEmail.text.toString())
-                mBundle.putString("tanggalLahir",binding.ketikTanggalLahir.text.toString())
-                mBundle.putString("nomorHP",binding.ketikTanggalLahir.text.toString())
-                moveLogin.putExtra("Register",mBundle)
-                startActivity(moveLogin)
-                finish()
-
-            },
-                Response.ErrorListener { error ->
-
-                    try {
-                        val responseBody =
-                            String(error.networkResponse.data, StandardCharsets.UTF_8)
-                        val errors = JSONObject(responseBody)
-                        Toast.makeText(
-                            this,
-                            errors.getString("message"),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } catch (e: Exception) {
-                        Toast.makeText(this@Register, e.message, Toast.LENGTH_SHORT).show()
-                    }
-                }){
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers["Accept"] = "application/json"
-                    return headers
-                }
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray {
-                    val gson = Gson()
-                    val requestBody = gson.toJson(User)
-                    return requestBody.toByteArray(StandardCharsets.UTF_8)
-                }
-
-                override fun getBodyContentType(): String {
-                    return "application/json"
-                }
-            }
-    }
 }
 
 

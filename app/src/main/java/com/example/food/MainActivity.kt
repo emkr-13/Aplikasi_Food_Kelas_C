@@ -77,15 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
         LoginApp()
-//      yang Bawah Ini Gak Usaha di Pakai
-//        Load Data Error if with
-//        val ids = sharedPreferences!!.getString(ids,"")!!.toInt()
-//        loadData(ids)
-//        CoroutineScope(Dispatchers.IO).launch{
-//            if(db.userDao().getUser().isNotEmpty()){
-//
-//            }
-//        }
+
 
 
         if(!sharedPreferences!!.contains(key)){
@@ -116,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                 getBudle()
                 setText()
             }
-//            Ini Room Database
+
 
 
             CoroutineScope(Dispatchers.IO).launch {
@@ -129,8 +121,7 @@ class MainActivity : AppCompatActivity() {
                         editor.putString(id, i.id.toString())
                         editor.apply()
                         checkLogin=true
-                        //import libary sucess
-//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true)
+
                         createNotificationChannel()
                         sendNotification2(username)
                         break
@@ -140,8 +131,7 @@ class MainActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main){
                     if((username == "admin" && password== "admin") || (checkLogin)){
                         checkLogin = false
-                        //import libary sucess
-//                        FancyToast.makeText(this@MainActivity,"Login Sucsess !",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true);
+
                         startActivity(moveHome)
                         finish()
                     }
@@ -151,26 +141,12 @@ class MainActivity : AppCompatActivity() {
 
             if (username.isEmpty()){
                inputUsername.setError("Username must be filled with text")
-                //import libary error
-//                FancyToast.makeText(
-//                    this,
-//                    "Username must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+
                 checkLogin = false
             }
             if (password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
-                //import libary error
-//                FancyToast.makeText(
-//                    this,
-//                    "Password must be filled with text",
-//                    FancyToast.LENGTH_LONG,
-//                    FancyToast.ERROR,
-//                    true
-//                ).show()
+
                 checkLogin = false
             }
 
@@ -269,60 +245,6 @@ class MainActivity : AppCompatActivity() {
     }
 //LoginJSON
     private fun LoginApp(){
-        val userLogin = LoginUser(
-            binding.inputLayoutUsername.editText?.getText().toString(),
-            binding.inputLayoutPassword.editText?.getText().toString()
-
-        )
-//    Log.d("cekRegister", userLogin.toString())
-    val user: StringRequest =
-        object : StringRequest(Method.PUT, UserApi.GET_BY_ID_URL, Response.Listener { response ->
-            val gson = Gson()
-            var login = gson.fromJson(response, userLogin::class.java)
-            val jsonObject = JSONObject(response)
-            if (login != null) {
-                Toast.makeText(this@MainActivity, "Login Berhasil", Toast.LENGTH_SHORT).show()
-            }
-            val moveHome = Intent(this@MainActivity, Home::class.java)
-            val userID : SharedPreferences.Editor = sharedPreferences!!.edit()
-            userID.putInt("id", jsonObject.getJSONObject("user").getInt("id"))
-            userID.apply()
-            startActivity(moveHome)
-            finish()
-
-        },Response.ErrorListener { error ->
-            try {
-                val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
-                val errors = JSONObject(responseBody)
-                Toast.makeText(
-                    this@MainActivity,
-                    errors.getString("message"),
-                    Toast.LENGTH_SHORT
-                ).show()
-            } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
-            }
-
-        }) {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> {
-                val headers = HashMap<String, String>()
-                headers["Accept"] = "application/json"
-                return headers
-            }
-
-            @Throws(AuthFailureError::class)
-            override fun getBody(): ByteArray {
-                val gson = Gson()
-                val requestBody = gson.toJson(userLogin)
-                return requestBody.toByteArray(StandardCharsets.UTF_8)
-            }
-
-            override fun getBodyContentType(): String {
-                return "application/json"
-            }
-        }
-
 
 }
 
