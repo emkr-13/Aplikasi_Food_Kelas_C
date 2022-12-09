@@ -88,7 +88,7 @@ class Register : AppCompatActivity() {
         btnRegister.setOnClickListener {
 
             var checkRegis = false
-            val intent = Intent (this,MainActivity :: class.java)
+
 
             val username=inputUsername.text.toString()
             val password=inputPassword.text.toString()
@@ -172,17 +172,7 @@ class Register : AppCompatActivity() {
             sendNotification1(username,bitmap)
 
 
-            val mBundle = Bundle()
 
-            mBundle.putString("username",username)
-            mBundle.putString("password",password)
-            mBundle.putString("email",email)
-            mBundle.putString("tanggalLahir",tanggalLahir)
-            mBundle.putString("nomorHp",nomorHP)
-
-            intent.putExtra("register", mBundle)
-
-            startActivity(intent)
 
 
 
@@ -273,11 +263,8 @@ class Register : AppCompatActivity() {
 
 
                 val intent = Intent(this, MainActivity::class.java)
-                val mBundle = Bundle()
-//                Timber.d("Berhasil Login")
-//                mBundle.putString("username",binding.etUsername.text.toString())
-//                mBundle.putString("password",binding.etPassword.text.toString())
-//                intent.putExtra("register", mBundle)
+
+
                 startActivity(intent)
                 finish()
             },

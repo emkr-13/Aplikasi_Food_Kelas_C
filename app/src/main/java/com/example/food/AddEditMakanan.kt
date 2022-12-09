@@ -68,10 +68,11 @@ class AddEditMakanan : AppCompatActivity() {
         val stringRequest: StringRequest = object :
             StringRequest(Method.GET, MakananApi.GET_BY_ID_URL + id, Response.Listener { response ->
                 val gson = Gson()
-                val mahasiswa = gson.fromJson(response, food::class.java)
+                val jsonObject = JSONObject(response)
+                val makanan = gson.fromJson(jsonObject.getJSONObject("data").toString(), food::class.java)
 
-                etNama!!.setText(mahasiswa.nama)
-                etHarga!!.setText(mahasiswa.harga)
+                etNama!!.setText(makanan.nama)
+                etHarga!!.setText(makanan.harga)
 
 
                 Toast.makeText(this@AddEditMakanan, "Data berhasil diambil!", Toast.LENGTH_SHORT).show()
