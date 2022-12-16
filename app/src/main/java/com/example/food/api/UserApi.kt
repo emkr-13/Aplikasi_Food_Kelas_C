@@ -4,7 +4,7 @@ class UserApi {
     companion object {
 //        isikan sesuai URl IP Anda
 //        nantikan pakai hosting pakai local dulu
-        val BASE_URL = "http://192.168.100.5/api-food/public/api/"
+        val BASE_URL = "http://api.tugaskampus13.my.id/api/"
 
         val register = BASE_URL + "register"
         val login = BASE_URL + "login"
