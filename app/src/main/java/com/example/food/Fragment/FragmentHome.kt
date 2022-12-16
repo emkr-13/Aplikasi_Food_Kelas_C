@@ -29,7 +29,7 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(context)
         val adapter : RVHomeAdapter = RVHomeAdapter()
-        val btnmkn=binding.btnMkn
+
         val btnloc=binding.btnLog
 
 
@@ -40,10 +40,6 @@ class FragmentHome : Fragment() {
             startActivity(intent)
         }
 
-        btnmkn.setOnClickListener(){
-            val intent = Intent(context, MakananList::class.java)
-            startActivity(intent)
-        }
 
     }
 

@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.food.Location
-import com.example.food.R
-import com.example.food.RVPesananAdapter
-import com.example.food.Scan
+import com.example.food.*
 import com.example.food.databinding.FragmentListPesananBinding
 import com.example.food.entity.Pesanan
 
@@ -32,13 +29,15 @@ class FragmentListPesanan : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(context)
-        val adapter: RVPesananAdapter = RVPesananAdapter(Pesanan.listOfPesanan)
 
-        val rvPesanan: RecyclerView = view.findViewById(R.id.rv_pesanan)
+        val btnmkn=binding.btnmkn
+        val btnpsn=binding.btnpsn
+        val btnkmtr=binding.btnkomentar
 
-        rvPesanan.layoutManager = layoutManager
-        rvPesanan.setHasFixedSize(true)
-        rvPesanan.adapter = adapter
+        btnmkn.setOnClickListener(){
+            val intent = Intent(context, MakananList::class.java)
+            startActivity(intent)
+        }
 
 
 

@@ -103,6 +103,7 @@ Filterable{
         }
     }
 
+
     inner class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
         var tvNama: TextView
         var tvHarga: TextView
@@ -118,4 +119,5 @@ Filterable{
             cvMakanan = itemView.findViewById(R.id.cv_makanan)
         }
     }
+
 }

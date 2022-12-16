@@ -33,6 +33,7 @@ class MakananList : AppCompatActivity() {
     companion object{
         const val LAUNCH_ADD_ACTIVITY = 123
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_makanan_list)
@@ -65,6 +66,7 @@ class MakananList : AppCompatActivity() {
         rvProduk.adapter = adapter
         allMakanan()
     }
+
     private fun setLoading(isLoading: Boolean) {
         if (isLoading) {
             window.setFlags(
