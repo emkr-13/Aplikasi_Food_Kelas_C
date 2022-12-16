@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food.*
 import com.example.food.databinding.FragmentListPesananBinding
+import com.example.food.databinding.FragmentShowProfilBinding
 import com.example.food.entity.Pesanan
 
 
@@ -23,7 +24,10 @@ class FragmentListPesanan : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_list_pesanan, container, false)
+
+        _binding = FragmentListPesananBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,9 +43,15 @@ class FragmentListPesanan : Fragment() {
             startActivity(intent)
         }
 
+        btnpsn.setOnClickListener(){
+            val intent = Intent(context, PesananList::class.java)
+            startActivity(intent)
+        }
 
-
-
+        btnkmtr.setOnClickListener(){
+            val intent = Intent(context, KomentarList::class.java)
+            startActivity(intent)
+        }
 
 
     }
