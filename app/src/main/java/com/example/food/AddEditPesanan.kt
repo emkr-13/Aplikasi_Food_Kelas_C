@@ -48,7 +48,7 @@ class AddEditPesanan : AppCompatActivity() {
         val tvTitle = findViewById<TextView>(R.id.tv_title)
         val id = intent.getLongExtra("id", -1)
         if(id==-1L) {
-            tvTitle.setText("Tambah Makanan")
+            tvTitle.setText("Tambah Pa")
             btnSave.setOnClickListener { createPesanan() }
         } else {
             tvTitle.setText("Edit Makanan")
@@ -120,8 +120,6 @@ class AddEditPesanan : AppCompatActivity() {
             etHarga!!.text.toString(),
             etTotal!!.text.toString(),
             etNote!!.text.toString(),
-
-
             )
 
         val stringRequest: StringRequest =

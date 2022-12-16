@@ -24,7 +24,7 @@ class AddEditKomentar : AppCompatActivity() {
         private val Jenis_LIST = arrayOf("Saran", "Kritik", "Complain")
 
     }
-    private var etJenis: EditText? = null
+    private var edJenis: AutoCompleteTextView? = null
     private var etNama:  EditText?= null
     private var etNote: EditText? = null
     private var layoutLoading: LinearLayout? = null
@@ -34,7 +34,7 @@ class AddEditKomentar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_edit_komentar)
         etNama=findViewById(R.id.et_nama)
-        etJenis=findViewById(R.id.ed_jenis)
+        edJenis=findViewById(R.id.ed_jenis)
         etNote=findViewById(R.id.et_note)
         setExposedDropDownMenu()
 
@@ -47,10 +47,10 @@ class AddEditKomentar : AppCompatActivity() {
         val tvTitle = findViewById<TextView>(R.id.tv_title)
         val id = intent.getLongExtra("id", -1)
         if(id==-1L) {
-            tvTitle.setText("Tambah Makanan")
+            tvTitle.setText("Tambah Komentar")
             btnSave.setOnClickListener { createKomentar() }
         } else {
-            tvTitle.setText("Edit Makanan")
+            tvTitle.setText("Edit Komentar")
             getKomentarById(id)
 
             btnSave.setOnClickListener {updateKomentar(id)}
@@ -82,10 +82,10 @@ class AddEditKomentar : AppCompatActivity() {
                 val jsonObject = JSONObject(response)
                 val makanan = gson.fromJson(jsonObject.getJSONObject("data").toString(), komentar::class.java)
 
+                edJenis!!.setText(makanan.jenis_komentar)
                 etNama!!.setText(makanan.nama_makanan)
-                etJenis!!.setText(makanan.jenis_komentar)
                 etNote!!.setText(makanan.cacatan)
-
+                setExposedDropDownMenu()
 
 
                 Toast.makeText(this@AddEditKomentar, "Data berhasil diambil!", Toast.LENGTH_SHORT).show()
@@ -119,12 +119,9 @@ class AddEditKomentar : AppCompatActivity() {
         setLoading(true)
 
         val mahasiswa = komentar(
+            edJenis!!.text.toString(),
             etNama!!.text.toString(),
-            etJenis!!.text.toString(),
             etNote!!.text.toString(),
-
-
-
             )
 
         val stringRequest: StringRequest =
@@ -179,8 +176,8 @@ class AddEditKomentar : AppCompatActivity() {
         setLoading(true)
 
         val mahasiswa = komentar(
+            edJenis!!.text.toString(),
             etNama!!.text.toString(),
-            etJenis!!.text.toString(),
             etNote!!.text.toString(),
 
             )

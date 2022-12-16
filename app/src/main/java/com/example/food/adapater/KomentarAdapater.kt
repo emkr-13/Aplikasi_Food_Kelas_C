@@ -86,7 +86,7 @@ class KomentarAdapater (private  var komentarList: List<komentar>, context: Cont
                     filtered.addAll(komentarList)
                 }else{
                     for(mahasiswa in komentarList){
-                        if(mahasiswa.nama_makanan.lowercase(Locale.getDefault())
+                        if(mahasiswa.jenis_komentar.lowercase(Locale.getDefault())
                                 .contains(charSequenceString.lowercase(Locale.getDefault()))
                         ) filtered.add(mahasiswa)
                     }

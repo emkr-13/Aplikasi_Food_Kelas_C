@@ -59,7 +59,7 @@ class KomentarList : AppCompatActivity() {
 
         val fabAdd = findViewById<FloatingActionButton>(R.id.fab_add)
         fabAdd.setOnClickListener{
-            val i = Intent(this@KomentarList, AddEditPesanan::class.java)
+            val i = Intent(this@KomentarList, AddEditKomentar::class.java)
             startActivityForResult(i, MakananList.LAUNCH_ADD_ACTIVITY)
         }
 
