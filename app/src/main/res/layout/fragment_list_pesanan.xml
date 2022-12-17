@@ -8,26 +8,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
-        <Button
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnmkn"
-            android:layout_width="249dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="16dp"
-            android:text="Menu Makanan"
-            app:backgroundTint="#39870D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="32dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422"
-            tools:viewBindingIgnore="true" />
+            app:layout_constraintHorizontal_bias="0.14"
 
+            app:layout_constraintStart_toEndOf="@+id/btnpsn"
+            app:srcCompat="@drawable/ic_baseline_fastfood" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnpsn"
@@ -35,10 +32,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="32dp"
-            android:layout_marginEnd="176dp"
-            android:layout_marginBottom="520dp"
+            android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.174"
+            app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_baseline_shopping" />
 
         <Button
