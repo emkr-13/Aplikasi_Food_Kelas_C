@@ -37,7 +37,6 @@ class FragmentListPesanan : Fragment() {
         val btnmkn=binding.btnmkn
         val btnpsn=binding.btnpsn
         val btnkmtr=binding.btnkomentar
-
         btnmkn.setOnClickListener(){
             val intent = Intent(context, MakananList::class.java)
             startActivity(intent)
