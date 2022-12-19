@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name=".AddEditPesanan"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -60,7 +60,7 @@
         </activity>
         <activity
             android:name=".AddEditMakanan"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -112,7 +112,7 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Home"
             android:exported="false" />
@@ -122,6 +122,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
