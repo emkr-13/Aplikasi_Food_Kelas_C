@@ -7,16 +7,7 @@
     tools:context=".Fragment.FragmentListMakanan">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="500dp"
-        android:layout_height="730dp"
-        android:src="@drawable/resto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:viewBindingIgnore="true" />
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
