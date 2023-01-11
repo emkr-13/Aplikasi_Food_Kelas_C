@@ -43,7 +43,7 @@ class MainActivityTest {
             )
         )
         textInputEditText.perform(replaceText("kelompok5"), closeSoftKeyboard())
-        onView(isRoot()).perform(waitFor(3000))
+
 
 
         val materialButton = onView(
